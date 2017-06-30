@@ -1,3 +1,10 @@
+img {
+  image-rendering: pixelated;
+}
+
+
+
+
 .App {
   text-align: center;
 }
