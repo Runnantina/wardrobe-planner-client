@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Adaptors } from '../adaptors/index'
 import SearchBar from './searchBar'
 import TagList from './tagList'
+import ItemsList from './itemsList'
+
 
 
 export default class ClosetContainer extends Component{
@@ -13,13 +15,21 @@ export default class ClosetContainer extends Component{
       searchTag: ''
     }
     this.handleChange = this.handleChange.bind(this)
-    this.getItems = this.getItems.bind(this)
-    this.getTags = this.getTags.bind(this)
   }
 
   componentDidMount(){
     this.getItems()
     this.getTags()
+    if(this.state.tags.length > 1){
+      console.log(this.state.tags)
+    }
+  }
+
+  handleChange(event){
+    this.setState({
+      searchTag: event.target.value
+    })
+
   }
 
   getItems() {
@@ -32,18 +42,31 @@ export default class ClosetContainer extends Component{
     .then(tags => this.setState({tags}))
   }
 
-  handleChange(event){
-    this.setState({
-      searchTag: event.target.value
-    })
+  getItemTags(tag_id){
+    Adaptors.ItemTags(tag_id)
+    .then(tags => this.setState({}))
   }
+
+  filterTags(){
+    const perTag = this.state.tags.map( tag => tag.keyword )
+
+    return perTag
+  }
+
+  filterItems(){
+    const perImage = this.state.items.map( item => item.image )
+    return perImage
+  }
+
+
 
 
   render(){
     return(
       <div>
         <SearchBar handleChange={this.handleChange}/>
-        <TagList tags={this.state.tags} searchTag={this.state.searchTag}/>
+        <ItemsList searchItemImage={this.state.items} itemImage={this.filterItems()}/>
+        <TagList tags={this.filterTags()} searchTag={this.state.searchTag}/>
 
       </div>
     )

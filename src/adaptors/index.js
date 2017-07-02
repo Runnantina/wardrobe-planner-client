@@ -1,9 +1,9 @@
-const baseURL = "http://localhost:3000/"
+const baseURL = "http://localhost:3000"
 
 export class Adaptors {
 
   static Items(){
-    return fetch(baseURL + 'api/v1/items')
+    return fetch(baseURL + '/api/v1/items')
       .then(res => res.json())
   }
 
@@ -12,6 +12,9 @@ export class Adaptors {
       .then(res => res.json())
   }
 
-
+  static ItemTags(tag_word){
+    return fetch(baseURL + `api/v1/tags/${tag_word}/items`)
+    .then(res => res.json())
+  }
 
 }

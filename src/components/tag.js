@@ -3,9 +3,10 @@ import React from 'react'
 const Tag = (props) => {
 
   return(
-    <div>
-      <li>{props.eachTag}</li>
-    </div>
+    <p>
+    {props.eachTag}
+
+    </p>
   )
 }
 

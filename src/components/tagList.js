@@ -8,7 +8,7 @@ const TagList = (props) => {
   return(
 
     <ul>
-      {props.tags.map( tag => <li>{tag.keyword}</li> )}
+      {props.tags.map( tag => <Tag key={tag} eachTag={tag}/>)}
     </ul>
 
   )

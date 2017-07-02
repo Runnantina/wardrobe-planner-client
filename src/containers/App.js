@@ -8,11 +8,11 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={"http://bergdorfgoodman.scene7.com/is/image/bergdorfgoodman/BGB3RPA_01_m?&wid=400&height=500"} className="App-logo" alt="logo" />
-          <h2>Wardrobe Organizer</h2>
+          <img src={"https://www.kaleidoscopephotoart.com/images/D/Petals%20of%20Poise%202%20tile%20watermark-03.jpg"} className="App-logo" alt="logo" />
         </div>
+        <h1>Wardrobe Planner</h1>
         <p className="App-intro">
-          .........
+          best way to hop on that sustainability, shop your own wardrobe....
         </p>
         <ClosetContainer />
       </div>
