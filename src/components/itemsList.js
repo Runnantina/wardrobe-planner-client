@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Item from './item'
+
 export default function ItemsList(props){
 
+  searchTag = props.searchTag
 
   return(
     <div>
       <ul>
-        <li>{props.searchItemImage.map(item => <Item image={item.image} key={item.id}/>)}</li>
+        {props.filterItems.filter(item => item)}
       </ul>
     </div>
   )

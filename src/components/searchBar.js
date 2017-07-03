@@ -15,5 +15,6 @@ export default function SearchBar(props) {
         />
         <i className="circular search link icon"></i>
       </div>
+
     )
 }

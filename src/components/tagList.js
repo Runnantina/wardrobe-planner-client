@@ -8,7 +8,7 @@ const TagList = (props) => {
   return(
 
     <ul>
-      {props.tags.map( tag => <Tag key={tag} eachTag={tag}/>)}
+      {props.tags.map( tag => tag.keyword.includes(props.searchTag) ? <Tag id={tag.id} key={tag.id} eachTag={tag.keyword}/> : null)}
     </ul>
 
   )

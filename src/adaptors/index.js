@@ -1,20 +1,24 @@
-const baseURL = "http://localhost:3000"
+const baseURL = "http://localhost:3000/api/v1"
 
 export class Adaptors {
 
   static Items(){
-    return fetch(baseURL + '/api/v1/items')
+    return fetch(baseURL + '/items')
       .then(res => res.json())
   }
 
   static Tags(){
-    return fetch(baseURL + '/api/v1/tags')
+    return fetch(baseURL + '/tags')
       .then(res => res.json())
   }
 
-  static ItemTags(tag_word){
-    return fetch(baseURL + `api/v1/tags/${tag_word}/items`)
+  static ItemTags(tag_id){
+    return fetch(baseURL + `/tags/${tag_id}/items`) //items#show
     .then(res => res.json())
+  }
+
+  static searchItems(){
+
   }
 
 }

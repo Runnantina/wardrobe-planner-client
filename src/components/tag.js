@@ -5,7 +5,6 @@ const Tag = (props) => {
   return(
     <p>
     {props.eachTag}
-
     </p>
   )
 }

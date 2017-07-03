@@ -42,9 +42,9 @@ export default class ClosetContainer extends Component{
     .then(tags => this.setState({tags}))
   }
 
-  getItemTags(tag_id){
-    Adaptors.ItemTags(tag_id)
-    .then(tags => this.setState({}))
+  getItemTags(tag_word){
+    Adaptors.ItemTags(tag_word.id)
+    .then(tags => this.setState({tags}))
   }
 
   filterTags(){
@@ -54,20 +54,17 @@ export default class ClosetContainer extends Component{
   }
 
   filterItems(){
-    const perImage = this.state.items.map( item => item.image )
-    return perImage
+    return this.state.items.map( item => item.tags.map(tag => tag))
+
+
   }
-
-
-
 
   render(){
     return(
       <div>
-        <SearchBar handleChange={this.handleChange}/>
-        <ItemsList searchItemImage={this.state.items} itemImage={this.filterItems()}/>
-        <TagList tags={this.filterTags()} searchTag={this.state.searchTag}/>
-
+        <SearchBar handleChange={this.handleChange} />
+        <ItemsList searchItemImage={this.state.tags} searchTag={this.state.searchTag} filterItems={this.filterItems()}/>
+        <TagList tags={this.state.tags} searchTag={this.state.searchTag} items={this.state.items}/>
       </div>
     )
   }
