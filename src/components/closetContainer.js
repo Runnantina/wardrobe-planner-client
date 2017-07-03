@@ -65,6 +65,7 @@ export default class ClosetContainer extends Component{
     return(
       <div>
         <SearchBar handleChange={this.handleChange}/>
+      // why are you passing down item image?
         <ItemsList searchItemImage={this.state.items} itemImage={this.filterItems()}/>
         <TagList tags={this.filterTags()} searchTag={this.state.searchTag}/>
 
