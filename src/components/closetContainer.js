@@ -41,7 +41,7 @@ export default class ClosetContainer extends Component{
     Adaptors.Tags()
     .then(tags => this.setState({tags}))
   }
-
+// where will you use this?
   getItemTags(tag_id){
     Adaptors.ItemTags(tag_id)
     .then(tags => this.setState({}))
