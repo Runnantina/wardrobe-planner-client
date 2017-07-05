@@ -4,8 +4,6 @@ import Item from './item'
 export default function ItemsList(props){
 
 
-
-
   return(
     <div>
       <ul>

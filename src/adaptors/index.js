@@ -13,10 +13,19 @@ export class Adaptors {
   }
 
   static ItemsByTag(tag_id){
-    return fetch(baseURL + `/tags/${tag_id}/items`) 
+    return fetch(baseURL + `/tags/${tag_id}/items`)
     .then(res => res.json())
   }
 
+  static createItem(item){
+    return fetch(`${baseURL}/items`, {
+      method: 'POST',
+      headers: this.headers(),
+      body: JSON.stringify({
+        item: {image: item.image}
+      })
+    }).then(response => response.json())
+  }
 
   static headers(){
     return {

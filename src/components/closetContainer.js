@@ -3,6 +3,7 @@ import { Adaptors } from '../adaptors/index'
 import SearchBar from './searchBar'
 import TagList from './tagList'
 import ItemsList from './itemsList'
+import NewItemForm from './newItemForm'
 
 
 export default class ClosetContainer extends Component{
@@ -12,6 +13,7 @@ export default class ClosetContainer extends Component{
       tags: [],
       items: [],
       searchTag: '',
+      newItem: '',
       tagItems: [],
     }
     this.onSubmit = this.onSubmit.bind(this)
@@ -20,6 +22,16 @@ export default class ClosetContainer extends Component{
   componentDidMount(){
     this.getItems()
     this.getTags()
+  }
+
+  create(item){
+    Adaptors.createItem(item)
+    .then(item => this.setState((previousState) => {
+        return {
+          items: [...previousState.items, item]
+        }
+      })
+    )
   }
 
   onSubmit(searchTag){
@@ -49,7 +61,7 @@ export default class ClosetContainer extends Component{
       <div>
         <SearchBar tags={this.state.tags} onSubmit={this.onSubmit}/>
         <ItemsList tagItems={this.state.tagItems} />
-
+        <NewItemForm onSubmit={this.create} />
       </div>
     )
   }
