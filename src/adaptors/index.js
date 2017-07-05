@@ -12,13 +12,17 @@ export class Adaptors {
       .then(res => res.json())
   }
 
-  static ItemTags(tag_id){
-    return fetch(baseURL + `/tags/${tag_id}/items`) //items#show
+  static ItemsByTag(tag_id){
+    return fetch(baseURL + `/tags/${tag_id}/items`) 
     .then(res => res.json())
   }
 
-  static searchItems(){
 
+  static headers(){
+    return {
+      'content-type': 'application/json',
+      'accept': 'application/json'
+    }
   }
 
 }

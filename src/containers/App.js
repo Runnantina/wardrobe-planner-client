@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
 import '../App.css';
 import ClosetContainer from '../components/closetContainer'
-import SearchBar from '../components/searchBar'
 
 class App extends Component {
   render() {
@@ -21,8 +20,7 @@ class App extends Component {
           </p>
           <br></br>
         </div>
-
-        <Route path="/api/v1/tags" component={ClosetContainer}/>
+        <ClosetContainer />
       </div>
     );
   }

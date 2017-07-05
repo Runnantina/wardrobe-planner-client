@@ -5,30 +5,27 @@ import TagList from './tagList'
 import ItemsList from './itemsList'
 
 
-
 export default class ClosetContainer extends Component{
   constructor(){
     super()
     this.state = {
       tags: [],
       items: [],
-      searchTag: ''
+      searchTag: '',
+      tagItems: [],
     }
-    this.handleChange = this.handleChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   componentDidMount(){
     this.getItems()
     this.getTags()
-    if(this.state.tags.length > 1){
-      console.log(this.state.tags)
-    }
   }
 
-  handleChange(event){
-    this.setState({
-      searchTag: event.target.value
-    })
+  onSubmit(searchTag){
+    const tag = this.state.tags.filter( tag => tag.keyword === searchTag)[0]
+
+    this.getItemTags(tag.id)
 
   }
 
@@ -42,29 +39,17 @@ export default class ClosetContainer extends Component{
     .then(tags => this.setState({tags}))
   }
 
-  getItemTags(tag_word){
-    Adaptors.ItemTags(tag_word.id)
-    .then(tags => this.setState({tags}))
-  }
-
-  filterTags(){
-    const perTag = this.state.tags.map( tag => tag.keyword )
-
-    return perTag
-  }
-
-  filterItems(){
-    return this.state.items.map( item => item.tags.map(tag => tag))
-
-
+  getItemTags(tag_id){
+    Adaptors.ItemsByTag(tag_id)
+    .then(tagItems => this.setState({tagItems}))
   }
 
   render(){
     return(
       <div>
-        <SearchBar handleChange={this.handleChange} />
-        <ItemsList searchItemImage={this.state.tags} searchTag={this.state.searchTag} filterItems={this.filterItems()}/>
-        <TagList tags={this.state.tags} searchTag={this.state.searchTag} items={this.state.items}/>
+        <SearchBar tags={this.state.tags} onSubmit={this.onSubmit}/>
+        <ItemsList tagItems={this.state.tagItems} />
+
       </div>
     )
   }

@@ -1,20 +1,46 @@
-import React, { Component } from 'react';
-
-// const baseURL = "http://localhost:3000/api/v1/items"
-
-export default function SearchBar(props) {
+import React, { Component } from 'react'
+import { Form } from 'semantic-ui-react'
 
 
-    return (
-      <div className="ui huge fluid icon input">
-        <input
-          type="text"
+export default class SearchBar extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      searchTag: "",
+    }
+    this.handleChange = this.handleChange.bind(this)
+  }
 
-          placeholder={"search your closet"}
-          onChange={props.handleChange}
+  handleChange = (e, { name, value }) => this.setState({[name]: value})
+
+  handleClick = () => this.props.onSubmit(this.state.searchTag)
+
+
+  tags = () => (
+    this.props.tags.map(tag => {
+      const x = {key: `${tag.id}`, value: `${tag.keyword}`, text: `${tag.keyword}`}
+      return x
+    })
+  )
+
+    render(){
+      return (
+        <Form>
+        <Form.Group>
+        <Form.Dropdown search selection
+        value={this.state.searchTag}
+        placeholder='select tags'
+        name = 'searchTag'
+        options={this.tags()}
+        onChange={this.handleChange}
         />
-        <i className="circular search link icon"></i>
-      </div>
+        <Form.Button
+        onClick={this.handleClick}
 
-    )
+        content='Search'
+        />
+        </Form.Group>
+        </Form>
+
+    )}
 }

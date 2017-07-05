@@ -9,8 +9,7 @@ export default class Item extends Component {
   render(){
     return(
       <div className="solo-image" >
-        <p><img src={this.props.image} width="500"/></p>
-
+        <p><img src={this.props.eachItemImage} width="500"/></p>
       </div>
     )
   }

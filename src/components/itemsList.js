@@ -3,12 +3,13 @@ import Item from './item'
 
 export default function ItemsList(props){
 
-  searchTag = props.searchTag
+
+
 
   return(
     <div>
       <ul>
-        {props.filterItems.filter(item => item)}
+        {!props.tagItems ? <div>itemsList</div> : props.tagItems.map(item => <Item eachItemImage={item.image}/>)}
       </ul>
     </div>
   )
