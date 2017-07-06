@@ -17,6 +17,8 @@ export default class ClosetContainer extends Component{
       tagItems: [],
     }
     this.onSubmit = this.onSubmit.bind(this)
+    this.createItem = this.createItem.bind(this)
+    this.createTag = this.createTag.bind(this)
   }
 
   componentDidMount(){
@@ -24,7 +26,7 @@ export default class ClosetContainer extends Component{
     this.getTags()
   }
 
-  create(item){
+  createItem(item){
     Adaptors.createItem(item)
     .then(item => this.setState((previousState) => {
         return {
@@ -32,6 +34,17 @@ export default class ClosetContainer extends Component{
         }
       })
     )
+  }
+
+  createTag(tag){
+    Adaptors.createTag(tag)
+      .then(item => this.setState((previousState) => {
+        return {
+          tags: [...previousState.tags, tag]
+        }
+      })
+    )
+
   }
 
   onSubmit(searchTag){
@@ -61,7 +74,7 @@ export default class ClosetContainer extends Component{
       <div>
         <SearchBar tags={this.state.tags} onSubmit={this.onSubmit}/>
         <ItemsList tagItems={this.state.tagItems} />
-        <NewItemForm onSubmit={this.create} />
+        <NewItemForm onSubmitItem={this.createItem} onSubmitTag={this.createTag} />
       </div>
     )
   }

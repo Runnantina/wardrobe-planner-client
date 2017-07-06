@@ -22,7 +22,18 @@ export class Adaptors {
       method: 'POST',
       headers: this.headers(),
       body: JSON.stringify({
-        item: {image: item.image}
+        image: item
+      })
+    }).then(response => response.json())
+  }
+
+  static createTag(tag){
+    console.log(tag)
+    return fetch(`${baseURL}/tags`, {
+      method: 'POST',
+      headers: this.headers(),
+      body: JSON.stringify({
+        keyword: tag
       })
     }).then(response => response.json())
   }
