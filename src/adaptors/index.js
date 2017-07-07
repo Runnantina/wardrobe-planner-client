@@ -27,16 +27,32 @@ export class Adaptors {
     }).then(response => response.json())
   }
 
-  static createTag(tag){
+  static createTag(item_url, tag){
     console.log(tag)
     return fetch(`${baseURL}/tags`, {
       method: 'POST',
       headers: this.headers(),
       body: JSON.stringify({
-        keyword: tag
+        tag: tag,
+        item_url: item_url
       })
     }).then(response => response.json())
   }
+
+  static createItemTag(item_id, tag_id){
+    console.log(item_id)
+    console.log(tag_id)
+    return fetch(`${baseURL}/item_tags`, {
+      method: 'POST',
+      headers: this.headers(),
+      body: JSON.stringify({
+        item_id: item_id,
+        tag_id: tag_id
+      })
+    }).then(response => response.json())
+  }
+
+
 
   static headers(){
     return {

@@ -16,11 +16,13 @@ class App extends Component {
         <div className="App-intro">
           <br></br>
           <p>
-            best way to hop on that sustainability, browse your own wardrobe....
+            best way to hop on that sustainability, browse through your own wardrobe....
           </p>
           <br></br>
         </div>
-        <ClosetContainer />
+        <div className="App-Body">
+          <ClosetContainer />
+        </div>
       </div>
     );
   }

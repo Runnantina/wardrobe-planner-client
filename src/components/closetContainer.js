@@ -13,11 +13,9 @@ export default class ClosetContainer extends Component{
       tags: [],
       items: [],
       searchTag: '',
-      newItem: '',
-      tagItems: [],
+      itemTags: [],
     }
     this.onSubmit = this.onSubmit.bind(this)
-    this.createItem = this.createItem.bind(this)
     this.createTag = this.createTag.bind(this)
   }
 
@@ -26,32 +24,28 @@ export default class ClosetContainer extends Component{
     this.getTags()
   }
 
-  createItem(item){
-    Adaptors.createItem(item)
-    .then(item => this.setState((previousState) => {
-        return {
-          items: [...previousState.items, item]
-        }
-      })
-    )
+  // createItem(item){
+  //   Adaptors.createItem(item)
+  //   .then(item => this.setState((previousState) => {
+  //       return {
+  //         items: [...previousState.items, item]
+  //       }
+  //     })
+  //   )
+  // }
+
+  createTag(item_url, tag){
+    Adaptors.createTag(item_url, tag)
   }
 
-  createTag(tag){
-    Adaptors.createTag(tag)
-      .then(item => this.setState((previousState) => {
-        return {
-          tags: [...previousState.tags, tag]
-        }
-      })
-    )
+  createItemTag(item_id, tag_id){
+    Adaptors.createItemTag(item_id, tag_id)
 
   }
 
   onSubmit(searchTag){
     const tag = this.state.tags.filter( tag => tag.keyword === searchTag)[0]
-
     this.getItemTags(tag.id)
-
   }
 
   getItems() {
@@ -66,15 +60,15 @@ export default class ClosetContainer extends Component{
 
   getItemTags(tag_id){
     Adaptors.ItemsByTag(tag_id)
-    .then(tagItems => this.setState({tagItems}))
+    .then(itemTags => this.setState({itemTags}))
   }
 
   render(){
     return(
       <div>
         <SearchBar tags={this.state.tags} onSubmit={this.onSubmit}/>
-        <ItemsList tagItems={this.state.tagItems} />
-        <NewItemForm onSubmitItem={this.createItem} onSubmitTag={this.createTag} />
+        <ItemsList itemTags={this.state.itemTags} />
+        <NewItemForm tags={this.state.tags} getTags={this.getTags} onSubmitTag={this.createTag} onSubmitIDs={this.createItemTag} />
       </div>
     )
   }
