@@ -17,42 +17,11 @@ export class Adaptors {
     .then(res => res.json())
   }
 
-  static createItem(item){
-    return fetch(`${baseURL}/items`, {
-      method: 'POST',
-      headers: this.headers(),
-      body: JSON.stringify({
-        image: item
-      })
-    }).then(response => response.json())
+  static destroyTag(tag_id){
+    return fetch(`${baseURL}/tags/${tag_id}`, {
+      method: 'DELETE'
+    }).then(res => res.json() )
   }
-
-  static createTag(item_url, tag){
-    console.log(tag)
-    return fetch(`${baseURL}/tags`, {
-      method: 'POST',
-      headers: this.headers(),
-      body: JSON.stringify({
-        tag: tag,
-        item_url: item_url
-      })
-    }).then(response => response.json())
-  }
-
-  static createItemTag(item_id, tag_id){
-    console.log(item_id)
-    console.log(tag_id)
-    return fetch(`${baseURL}/item_tags`, {
-      method: 'POST',
-      headers: this.headers(),
-      body: JSON.stringify({
-        item_id: item_id,
-        tag_id: tag_id
-      })
-    }).then(response => response.json())
-  }
-
-
 
   static headers(){
     return {
@@ -61,4 +30,27 @@ export class Adaptors {
     }
   }
 
+  static createTag(item_url, tags_arr){
+    console.log(tags_arr)
+    return fetch(`${baseURL}/tags`, {
+      method: 'POST',
+      headers: this.headers(),
+      body: JSON.stringify({
+        tags_arr: tags_arr,
+        item_url: item_url
+      })
+    }).then(response => response.json())
+  }
+
 }
+
+// static createItem(item){
+//   return fetch(`${baseURL}/items`, {
+//     method: 'POST',
+//     headers: this.headers(),
+//     body: JSON.stringify({
+//       image: item
+//     })
+//   }).then(response => response.json())
+// }
+//

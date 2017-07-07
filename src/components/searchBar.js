@@ -14,7 +14,9 @@ export default class SearchBar extends Component {
 
   handleChange = (e, { name, value }) => this.setState({[name]: value})
 
-  handleClick = () => this.props.onSubmit(this.state.searchTag)
+  handleClick = () => {
+    this.props.onSubmit(this.state.searchTag)
+  }
 
 
   tags = () => (
