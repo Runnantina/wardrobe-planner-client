@@ -4,7 +4,7 @@ const Tag = (props) => {
 
   return(
     <p>
-    {props.eachTag}
+    #{props.eachTag}
     </p>
   )
 }

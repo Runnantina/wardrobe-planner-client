@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import Item from './item'
+import { Label } from 'semantic-ui-react'
+
 
 export default function ItemsList(props){
-
-
 
 
   return(
     <div>
       <ul>
-        {!props.tagItems ? <div>itemsList</div> : props.tagItems.map(item => <Item eachItemImage={item.image}/>)}
+        {!props.itemTags ? <Label content='Image not found!' icon='warning' /> : props.itemTags.map(item => <Item eachItemImage={item.image} />)}
+        <div>
+        </div>
       </ul>
     </div>
   )

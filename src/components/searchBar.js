@@ -9,11 +9,14 @@ export default class SearchBar extends Component {
       searchTag: "",
     }
     this.handleChange = this.handleChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleChange = (e, { name, value }) => this.setState({[name]: value})
 
-  handleClick = () => this.props.onSubmit(this.state.searchTag)
+  handleClick = () => {
+    this.props.onSubmit(this.state.searchTag)
+  }
 
 
   tags = () => (

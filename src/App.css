@@ -15,7 +15,7 @@ img {
 .App-header {
   background-color: black;
   height: 220px;
-  padding: 10px;
+  padding: 0px;
   color: white;
   font-family: "Times New Roman", Times, serif;
   font-size: large;
@@ -24,6 +24,10 @@ img {
 .App-intro {
   font-size: large;
   font-family: "Times New Roman", Times, serif;
+}
+
+.App-Body {
+  padding: 30px;
 }
 
 
