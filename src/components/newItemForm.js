@@ -11,16 +11,9 @@ class NewItemForm extends Component {
       url: "",
       tags: []
     }
-    this.handleChangeItem = this.handleChangeItem.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmitAll = this.handleSubmitAll.bind(this)
 
-  }
-
-  handleChangeItem(e){
-    this.setState({
-      url: e.target.value,
-    })
   }
 
   handleChange(e){
@@ -51,7 +44,6 @@ class NewItemForm extends Component {
           </Form.Group>
             <Button type='submit' className="btn event_button" >add</Button>
         </Form>
-
       </div>
     )
   }

@@ -17,17 +17,15 @@ export class Adaptors {
     .then(res => res.json())
   }
 
-  static destroyTag(tag_id){
-    return fetch(`${baseURL}/tags/${tag_id}`, {
-      method: 'DELETE'
-    }).then(res => res.json() )
+  static showItemsError(item_id){
+    return fetch(baseURL + `/items/${item_id}`)
+    .then(res => res.json())
   }
 
-  static headers(){
-    return {
-      'content-type': 'application/json',
-      'accept': 'application/json'
-    }
+  static destroyItem(item_id){
+    return fetch(`${baseURL}/items/${item_id}`, {
+      method: 'DELETE'
+    }).then(res => res.json() )
   }
 
   static createTag(item_url, tags_arr){
@@ -42,15 +40,10 @@ export class Adaptors {
     }).then(response => response.json())
   }
 
+  static headers(){
+    return {
+      'content-type': 'application/json',
+      'accept': 'application/json'
+    }
+  }
 }
-
-// static createItem(item){
-//   return fetch(`${baseURL}/items`, {
-//     method: 'POST',
-//     headers: this.headers(),
-//     body: JSON.stringify({
-//       image: item
-//     })
-//   }).then(response => response.json())
-// }
-//

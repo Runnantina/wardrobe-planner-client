@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Segment, Image } from 'semantic-ui-react'
+import { Segment, Image, Button, Icon } from 'semantic-ui-react'
 
 export default class Item extends Component {
   constructor(props){
@@ -9,11 +9,21 @@ export default class Item extends Component {
     }
   }
 
+  handleClick =(e, object) => { //or "object"'s shorthand: {value}
+    this.props.deleteItemTag(object.value)
+  }
+
   render(){
     return(
-      <div className="solo-image" >
-      <Image src={this.props.eachItemImage} size='small' centered/>
+      <div className="solo-image">
+        <Image src={this.props.eachItem.image} size='small' centered/>
+        <Button animated onClick={this.handleClick} value={this.props.eachItem.id}>
+          <Button.Content visible type='click' >Delete Item</Button.Content>
+          <Button.Content hidden>
+            <Icon name='trash' />
+          </Button.Content>
+        </Button>
       </div>
-    )
-  }
+      )
+    }
 }

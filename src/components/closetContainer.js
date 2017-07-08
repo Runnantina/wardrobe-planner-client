@@ -41,6 +41,11 @@ export default class ClosetContainer extends Component{
     .then(itemTags => this.setState({itemTags}))
   }
 
+  showItemsError(item_id){
+    console.log(item_id);
+    Adaptors.showItemsError(item_id)
+  }
+
   createTag(item_url, tags_arr){
     Adaptors.createTag(item_url, tags_arr)
   } //creates both tag.keyword and item.image
@@ -55,15 +60,15 @@ export default class ClosetContainer extends Component{
     this.getItemTags(tag.id)
   }
 
-  deleteItemTag(tag_id){
-    Adaptors.destroyTag(tag_id)
+  deleteItemTag(item_id){
+    console.log(item_id);
+    Adaptors.destroyItem(item_id)
       .then( () => {
         this.setState( previousState => {
           return {
-            tags: previousState.tags.filter( tag => tag.id !== tag_id )
+            items: previousState.items.filter( item => item.id !== item_id )
           }
         })
-        this.props.history.push("/tags")
       })
   }
 
@@ -73,7 +78,7 @@ export default class ClosetContainer extends Component{
     return(
       <div>
         <SearchBar tags={this.state.tags} onSubmit={this.onSubmit}/>
-        <ItemsList itemTags={this.state.itemTags}/>
+        <ItemsList itemTags={this.state.itemTags} deleteItemTag={this.deleteItemTag} showItemsError={this.showItemsError}/>
         <NewItemForm tags={this.state.tags} getTags={this.getTags} onSubmitTag={this.createTag} onSubmitIDs={this.createItemTag} />
       </div>
     )
