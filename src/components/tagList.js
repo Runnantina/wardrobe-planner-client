@@ -1,17 +1,23 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Tag from './tag'
 
-const TagList = (props) => {
+class TagList extends Component {
 
-  const searchTag = props.searchTag
 
-  return(
+  tags = () => {
+    debugger  
+    this.props.tags.sort((a, b) => a.keyword.localeCompare(b.keyword))
+  }
 
-    <ul>
-      {props.tags.map( tag => tag.keyword.includes(props.searchTag) ? <Tag id={tag.id} key={tag.id} eachTag={tag.keyword}/> : null)}
-    </ul>
+  render () {
 
-  )
+    return (
+      <ul>
+        {this.tags().map( tag =>  <Tag id={tag.id} key={tag.id} eachTag={tag.keyword}/>) }
+      </ul>
+    )
+  }
+
 
 }
 

@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
 import { Adaptors } from '../adaptors/index'
 import SearchBar from './searchBar'
 import TagList from './tagList'
 import ItemsList from './itemsList'
 import NewItemForm from './newItemForm'
+import CollectionSearch from './collectionSearch'
+import CollectionList from './collectionList'
+import { Link, Switch, Route } from 'react-router-dom'
 
 
 export default class ClosetContainer extends Component{
@@ -13,17 +15,25 @@ export default class ClosetContainer extends Component{
     this.state = {
       tags: [],
       items: [],
-      searchTag: '',
+      searchTags: '',
       itemTags: [],
+      collections: [],
+      oneCollection: [],
+      collectionSearch: '',
+      collectionItems:[] // user will select a specific collection through this array
     }
-    this.onSubmit = this.onSubmit.bind(this)
+    this.onSubmitTagSearch = this.onSubmitTagSearch.bind(this)
+    this.onSubmitSelectCollection = this.onSubmitSelectCollection.bind(this)
     this.createTag = this.createTag.bind(this)
     this.deleteItemTag = this.deleteItemTag.bind(this)
+    this.getCollections = this.getCollections.bind(this)
+    this.showCollection = this.showCollection.bind(this)
   }
 
   componentDidMount(){
     this.getItems()
     this.getTags()
+    this.getCollections()
   }
 
   getItems() {
@@ -36,14 +46,20 @@ export default class ClosetContainer extends Component{
     .then(tags => this.setState({tags}))
   }
 
-  getItemTags(tag_id){
-    Adaptors.ItemsByTag(tag_id)
+  getItemTags(searchTags){
+    Adaptors.ItemsByTag(searchTags)
     .then(itemTags => this.setState({itemTags}))
   }
 
-  showItemsError(item_id){
-    console.log(item_id);
-    Adaptors.showItemsError(item_id)
+  getCollections(){
+    Adaptors.Collections()
+    .then(collections => this.setState({collections}))
+  }
+
+  showCollection(collectionSearch){
+    Adaptors.showCollection(collectionSearch)
+      .then(oneCollection => this.setState({oneCollection}))
+    // by searching for collections, we push in the entire collection objects to then display out their items
   }
 
   createTag(item_url, tags_arr){
@@ -55,9 +71,13 @@ export default class ClosetContainer extends Component{
 
   }
 
-  onSubmit(searchTag){
-    const tag = this.state.tags.filter( tag => tag.keyword === searchTag )[0]
-    this.getItemTags(tag.id)
+  onSubmitTagSearch(searchTags){
+    this.getItemTags(searchTags)
+  }
+
+  onSubmitSelectCollection(one_collection){
+    this.showCollection(one_collection)
+
   }
 
   deleteItemTag(item_id){
@@ -72,14 +92,14 @@ export default class ClosetContainer extends Component{
       })
   }
 
-
-
   render(){
     return(
       <div>
-        <SearchBar tags={this.state.tags} onSubmit={this.onSubmit}/>
-        <ItemsList itemTags={this.state.itemTags} deleteItemTag={this.deleteItemTag} showItemsError={this.showItemsError}/>
+        <SearchBar tags={this.state.tags} onSubmit={this.onSubmitTagSearch}/>
+        <ItemsList itemTags={this.state.itemTags} deleteItemTag={this.deleteItemTag}/>
         <NewItemForm tags={this.state.tags} getTags={this.getTags} onSubmitTag={this.createTag} onSubmitIDs={this.createItemTag} />
+        <CollectionSearch collections={this.state.collections} onSubmitSelectCollection={this.onSubmitSelectCollection}/>
+        <CollectionList oneCollection={this.state.oneCollection}/>
       </div>
     )
   }

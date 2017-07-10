@@ -2,6 +2,10 @@ img {
   image-rendering: pixelated;
 }
 
+.collection-search {
+  padding: 15px;
+}
+
 
 .App {
   text-align: center;

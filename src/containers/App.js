@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { Link, Switch, Route } from 'react-router-dom'
 import '../App.css'
 import ClosetContainer from '../components/closetContainer'
+import CollectionList from '../components/collectionList'
 
 class App extends Component {
 
@@ -21,6 +22,11 @@ class App extends Component {
         </div>
         <div className="App-Body">
         <Route path ="/" component={ClosetContainer} />
+        <Route path ="/collections" component={CollectionList} />
+        <Switch>
+          <Route path='/collections' />
+          <Route render={() => <Link to="/collections">See Your Collections</Link> } />
+        </Switch>
         <Route exact path="/about" render={() => {
           return <p>Wardobe Planner</p>
         }} />

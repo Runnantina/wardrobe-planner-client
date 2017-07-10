@@ -12,15 +12,19 @@ export class Adaptors {
       .then(res => res.json())
   }
 
-  static ItemsByTag(tag_id){
-    return fetch(baseURL + `/tags/${tag_id}/items`)
+  static ItemsByTag(searchTags){
+    return fetch(baseURL + `/tagitems`, {
+      method: 'POST',
+      headers: this.headers(),
+      body: JSON.stringify({searchTags})
+    })
     .then(res => res.json())
   }
 
-  static showItemsError(item_id){
-    return fetch(baseURL + `/items/${item_id}`)
-    .then(res => res.json())
-  }
+  // static showItemsError(item_id){
+  //   return fetch(baseURL + `/items/${item_id}`)
+  //   .then(res => res.json())
+  // }
 
   static destroyItem(item_id){
     return fetch(`${baseURL}/items/${item_id}`, {
@@ -38,6 +42,23 @@ export class Adaptors {
         item_url: item_url
       })
     }).then(response => response.json())
+  }
+
+  // handling collections
+
+  static Collections(){
+    return fetch(baseURL + '/collections')
+      .then(res => res.json())
+  }
+
+  static showCollection(collection_id){
+    return fetch(baseURL + `/collections/${collection_id}`)
+      .then(res => res.json())
+  }
+
+  static ItemsByCollection(item_id){
+    return fetch(baseURL + `/collections/${item_id}/items`)
+    .then(res => res.json())
   }
 
   static headers(){
