@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Item from './item'
-import { Label, Header } from 'semantic-ui-react'
+import { Header } from 'semantic-ui-react'
 
 export default class itemList extends Component {
   constructor(){

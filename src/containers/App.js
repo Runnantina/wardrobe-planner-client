@@ -1,31 +1,23 @@
 import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react'
-import { Link, Switch, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../App.css'
 import ClosetContainer from '../components/closetContainer'
-import CollectionList from '../components/collectionList'
 
 class App extends Component {
 
   render() {
     return (
       <div className="App">
-        <div className="App-header2">
-        <h1>Wardrobe Planner</h1>
-        </div>
-        <div className="App-intro">
-
-        </div>
-
         <div className='menu'>
-        <Menu text vertical>
-          <Menu.Item name='Collections' as={Link} to='/my_collections' />
-          <Menu.Item name='Upload' as={Link} to='/upload' />
-        </Menu>
+          <Menu text vertical>
+            <Menu.Item name='Collections' as={Link} to='/my_collections' />
+            <Menu.Item name='Upload' as={Link} to='/upload' />
+          </Menu>
         </div>
-
-
-
+        <div className="App-header2">
+        <h1 className='title'>Wardrobe Planner</h1>
+        </div>
         <div className="App-Body">
           <ClosetContainer/>
         </div>

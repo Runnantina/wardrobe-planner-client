@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import ItemsList from './itemsList'
 import { Form } from 'semantic-ui-react'
 
 
 export default class CollectionSearch extends Component {
   constructor(props){
     super(props)
-    
+
     this.state = {
       collectionSearch: ""
     }
@@ -33,7 +32,9 @@ export default class CollectionSearch extends Component {
 
     render(){
       return (
-        <Form className="collection-search">
+        <div className="collection-search">
+          <h3>My Collections</h3><br></br>
+        <Form>
         <Form.Group>
           <Form.Dropdown search selection
             value={this.state.collectionSearch}
@@ -43,12 +44,13 @@ export default class CollectionSearch extends Component {
             onChange={this.handleChange}
           />
 
-          <Form.Button
+        <Form.Button basic color='black' compact size='tiny'
             onClick={this.handleClick}
             content='Search'
           />
         </Form.Group>
         </Form>
+      </div>
 
     )}
 }

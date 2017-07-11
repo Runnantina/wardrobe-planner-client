@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Segment, Image, Button, Icon } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Image, Button, Icon } from 'semantic-ui-react'
 
 export default class Item extends Component {
   constructor(props){
@@ -17,13 +16,18 @@ export default class Item extends Component {
   render(){
     return(
       <div className="solo-image">
+
+        <section id="photo">
         <Image src={this.props.eachItem.image} size='small' centered/>
-        <Button animated onClick={this.handleClick} value={this.props.eachItem.id}>
+        </section>
+
+        <Button animated basic color='red' compact size='tiny' onClick={this.handleClick} value={this.props.eachItem.id}>
           <Button.Content visible type='click' >Delete Item</Button.Content>
           <Button.Content hidden>
             <Icon name='trash' />
           </Button.Content>
         </Button>
+
       </div>
       )
     }

@@ -3,12 +3,16 @@ img {
 }
 
 .collection-search {
-  padding: 15px;
+  padding-left: 1px;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 210s linear;
-  height: 100px;
+.menu {
+  padding: 8px;
+  padding-top: 10px;
+  color: yellow;
 }
 
 .App {
@@ -16,16 +20,16 @@ img {
   font-family: 'Scada', sans-serif;
 }
 
-.menu {
-  padding: 8px;
-}
-
 .App-header2 {
-  height: 80px;
-  padding: 15px;
+  height: 10px;
+  padding: 30px;
   color: black;
   font-family: 'Scada', sans-serif;
-  font-size: 200%;
+}
+
+h1.title {
+  font-family: 'Scada', sans-serif;
+  font-size: 310px
 }
 
 .App-intro {
@@ -43,8 +47,18 @@ img {
   padding-bottom: 80px;
 }
 
+#photo {
+
+}
+
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 210s linear;
+  height: 100px;
 }

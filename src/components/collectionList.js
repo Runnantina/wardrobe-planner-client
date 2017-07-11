@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
-import Item from './item'
-import { Label } from 'semantic-ui-react'
 import Collection from './collection'
-import CollectionSearch from './collectionSearch'
-
 
 
 export default class CollectionList extends Component {

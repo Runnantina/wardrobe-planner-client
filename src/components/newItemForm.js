@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Form, Button, Input, Header } from 'semantic-ui-react'
+import { Form, Button, Header } from 'semantic-ui-react'
 
 import '../index.css';
 

@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { Adaptors } from '../adaptors/index'
 import SearchBar from './searchBar'
-import TagList from './tagList'
 import ItemsList from './itemsList'
 import NewItemForm from './newItemForm'
 import CollectionSearch from './collectionSearch'
 import CollectionList from './collectionList'
-import { Link, Switch, Route, BrowserRouter } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 
 export default class ClosetContainer extends Component{
