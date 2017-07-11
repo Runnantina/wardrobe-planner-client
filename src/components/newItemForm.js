@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Form, Button, Input } from 'semantic-ui-react'
+import { Form, Button, Input, Header } from 'semantic-ui-react'
 
 import '../index.css';
 
@@ -60,16 +60,16 @@ class NewItemForm extends Component {
     const popup = (this.state.visible ? <Popup value={this.state.value} /> : null)
     return(
       <div>
-        <Form className="normal_text" onSubmit={this.handleSubmitAll}>
-        <label for="Images" className="form_labels">Add A Piece To Your Wardrobe</label>
+        <Form className="upload-form" onSubmit={this.handleSubmitAll}>
+        <label for="Images" className="form_labels"><Header as='h4'>Add A Piece To Your Wardrobe</Header></label>
         <br></br>
           <Form.Group widths='equal'>
-          <Form.Input label="image" type='text' className="form-control" placeholder="image url" id="url" value={this.state.url} onChange={this.handleChange}/>
-          <Form.Input label="#" type='text' className="form-control" placeholder="tag words in here" id="tags" value={this.state.tags} onChange={this.handleChange}/>
+          <Form.Input label="Image" type='text' className="form-control" placeholder="image url" id="url" value={this.state.url} onChange={this.handleChange}/>
+          <Form.Input label="Tag Your Image" type='text' className="form-control" placeholder="tag words in here" id="tags" value={this.state.tags} onChange={this.handleChange}/>
           </Form.Group>
             {popup}
-            <Button type='submit' className="btn event_button" >
-            <li key={0} onClick={() => this.popup('Item Added!')}>add</li>
+            <Button floated='right' size='tiny' color='black' type='submit' className="btn event_button" >
+              <div key={0} onClick={() => this.popup('Item Added!')}>Upload</div>
             </Button>
         </Form>
       </div>

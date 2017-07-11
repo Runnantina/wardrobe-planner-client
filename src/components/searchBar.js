@@ -30,7 +30,7 @@ export default class SearchBar extends Component {
     render(){
       return (
         <Form>
-        <Form.Group>
+        <Form.Group widths="equal">
         <Form.Dropdown search selection multiple
         value={this.state.searchTags}
         placeholder='search through tags'
@@ -38,7 +38,7 @@ export default class SearchBar extends Component {
         options={this.tags()}
         onChange={this.handleChange}
         />
-        <Form.Button
+      <Form.Button compact size='small' basic color='black'
         onClick={this.handleClick}
 
         content='Search'

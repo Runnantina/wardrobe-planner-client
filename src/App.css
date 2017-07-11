@@ -6,32 +6,41 @@ img {
   padding: 15px;
 }
 
+.App-logo {
+  animation: App-logo-spin infinite 210s linear;
+  height: 100px;
+}
 
 .App {
-  text-align: center;
+  text-align: left;
+  font-family: 'Scada', sans-serif;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 40s linear;
-  height: 150px;
+.menu {
+  padding: 8px;
 }
 
-.App-header {
-  background-color: black;
-  height: 220px;
-  padding: 0px;
-  color: white;
-  font-family: "Times New Roman", Times, serif;
-  font-size: large;
+.App-header2 {
+  height: 80px;
+  padding: 15px;
+  color: black;
+  font-family: 'Scada', sans-serif;
+  font-size: 200%;
 }
 
 .App-intro {
   font-size: large;
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'Scada', sans-serif;
 }
 
 .App-Body {
-  padding: 30px;
+  padding: 10px;
+}
+
+.upload-form {
+  padding-top: 50px;
+  height: 80px;
+  padding-bottom: 80px;
 }
 
 

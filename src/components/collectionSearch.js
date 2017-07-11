@@ -6,14 +6,17 @@ import { Form } from 'semantic-ui-react'
 export default class CollectionSearch extends Component {
   constructor(props){
     super(props)
+    
     this.state = {
-      collectionSearch: []
+      collectionSearch: ""
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleChange = (e, { name, value }) => this.setState({[name]: value})
+  handleChange = (e, { name, value }) => {
+    this.setState({[name]: value})
+  }
 
   handleClick = () => {
     this.props.onSubmitSelectCollection(this.state.collectionSearch)
@@ -32,18 +35,18 @@ export default class CollectionSearch extends Component {
       return (
         <Form className="collection-search">
         <Form.Group>
-        <Form.Dropdown search selection
-        value={this.state.collectionSearch}
-        placeholder='select collections'
-        name = 'collectionSearch'
-        options={this.collections()}
-        onChange={this.handleChange}
-        />
-        <Form.Button
-        onClick={this.handleClick}
+          <Form.Dropdown search selection
+            value={this.state.collectionSearch}
+            placeholder='select collections'
+            name = 'collectionSearch'
+            options={this.collections()}
+            onChange={this.handleChange}
+          />
 
-        content='Search'
-        />
+          <Form.Button
+            onClick={this.handleClick}
+            content='Search'
+          />
         </Form.Group>
         </Form>
 

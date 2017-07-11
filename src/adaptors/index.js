@@ -52,7 +52,7 @@ export class Adaptors {
   }
 
   static showCollection(collection_id){
-    return fetch(baseURL + `/collections/${collection_id}`)
+    return fetch(baseURL + `/collections/${parseInt(collection_id)}`)
       .then(res => res.json())
   }
 

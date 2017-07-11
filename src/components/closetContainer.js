@@ -6,7 +6,7 @@ import ItemsList from './itemsList'
 import NewItemForm from './newItemForm'
 import CollectionSearch from './collectionSearch'
 import CollectionList from './collectionList'
-import { Link, Switch, Route } from 'react-router-dom'
+import { Link, Switch, Route, BrowserRouter } from 'react-router-dom'
 
 
 export default class ClosetContainer extends Component{
@@ -19,8 +19,7 @@ export default class ClosetContainer extends Component{
       itemTags: [],
       collections: [],
       oneCollection: [],
-      collectionSearch: '',
-      collectionItems:[] // user will select a specific collection through this array
+      collectionItems:[]
     }
     this.onSubmitTagSearch = this.onSubmitTagSearch.bind(this)
     this.onSubmitSelectCollection = this.onSubmitSelectCollection.bind(this)
@@ -68,7 +67,6 @@ export default class ClosetContainer extends Component{
 
   createItemTag(item_id, tag_id){
     Adaptors.createItemTag(item_id, tag_id)
-
   }
 
   onSubmitTagSearch(searchTags){
@@ -77,7 +75,6 @@ export default class ClosetContainer extends Component{
 
   onSubmitSelectCollection(one_collection){
     this.showCollection(one_collection)
-
   }
 
   deleteItemTag(item_id){
@@ -97,10 +94,19 @@ export default class ClosetContainer extends Component{
       <div>
         <SearchBar tags={this.state.tags} onSubmit={this.onSubmitTagSearch}/>
         <ItemsList itemTags={this.state.itemTags} deleteItemTag={this.deleteItemTag}/>
-        <NewItemForm tags={this.state.tags} getTags={this.getTags} onSubmitTag={this.createTag} onSubmitIDs={this.createItemTag} />
-        <CollectionSearch collections={this.state.collections} onSubmitSelectCollection={this.onSubmitSelectCollection}/>
-        <CollectionList oneCollection={this.state.oneCollection}/>
+        <div className = "container">
+          <Route path = '/upload' render= {() => <NewItemForm tags={this.state.tags} getTags={this.getTags} onSubmitTag={this.createTag} onSubmitIDs={this.createItemTag}/>}/>
+          <Route path = '/my_collections' render= {() =>(
+            <div>
+              <CollectionSearch collections={this.state.collections} onSubmitSelectCollection={this.onSubmitSelectCollection}/>
+              <CollectionList oneCollection={this.state.oneCollection}/>
+            </div>
+          )} />
+        </div>
       </div>
     )
   }
 }
+
+
+// <Route exact path = '/my_collections' render= {() =>}/>

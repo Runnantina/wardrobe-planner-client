@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import Item from './item'
 import { Label, Header } from 'semantic-ui-react'
 
-
-
 export default class itemList extends Component {
   constructor(){
     super()
@@ -13,7 +11,7 @@ export default class itemList extends Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (this.props.itemTags !== nextProps.itemTags) { 
+    if (this.props.itemTags !== nextProps.itemTags) {
       !nextProps.itemTags[0] ? this.setState({ message: true }) : this.setState({ message: false })
     }
   }
