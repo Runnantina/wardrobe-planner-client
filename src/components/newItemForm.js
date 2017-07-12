@@ -10,7 +10,7 @@ class Popup extends React.Component {
   render() {
     const { value } = this.props
     return (
-      <div class="popup">
+      <div className="popup">
         <p>{value}</p>
       </div>
       )
@@ -60,7 +60,7 @@ class NewItemForm extends Component {
     return(
       <div>
         <Form className="upload-form" onSubmit={this.handleSubmitAll}>
-        <label for="Images" className="form_labels"><Header as='h4'>Add A Piece To Your Wardrobe</Header></label>
+        <label  className="form_labels"><Header as='h4'>Add A Piece To Your Wardrobe</Header></label>
         <br></br>
           <Form.Group widths='equal'>
           <Form.Input label="Image" type='text' className="form-control" placeholder="image url" id="url" value={this.state.url} onChange={this.handleChange}/>

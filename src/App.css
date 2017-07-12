@@ -3,7 +3,6 @@ img {
 }
 
 body {
-  background-image: url('https://i.ytimg.com/vi/6xYwEGXXMeU/maxresdefault.jpg');
 }
 
 .collection-search {
@@ -16,7 +15,7 @@ body {
 .menu {
   padding: 8px;
   padding-top: 10px;
-  padding-bottom: 50px;
+  padding-bottom: 130px;
   height: 40px;
   color: yellow;
   background-color: #EDC2C4;
@@ -25,6 +24,14 @@ body {
 .App {
   text-align: left;
   font-family: 'Scada', sans-serif;
+  background-image: url("../src/images/wardrobe-background.png");
+  min-height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /*.App-header2 {
@@ -38,8 +45,9 @@ h1.title {
   font-family: 'Scada', sans-serif;
   font-size: 290px;
   padding-left: 20px;
-  padding-top: 100px;
-  background-color: #EDC2C4
+  padding-top: 50px;
+  /*background-color: white;*/
+  /*background-color: #EDC2C4*/
 }
 
 .App-intro {
@@ -49,8 +57,8 @@ h1.title {
 
 .App-Body {
   padding: 10px;
-  background-color: #EDC2C4;
-  /*background-image: url("../src/images/polaroid.png");*/
+  padding-top: 400px;
+  /*background-color: #EDC2C4;*/
 
 }
 
@@ -87,6 +95,8 @@ h1.title {
 
 .search-form {
   padding-bottom: 10px;
+  height: 110px;
+  background-color: #EDC2C4;
 }
 
 

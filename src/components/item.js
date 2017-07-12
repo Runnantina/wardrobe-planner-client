@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, Button, Icon } from 'semantic-ui-react'
+import { Button, Icon } from 'semantic-ui-react'
 import '../App.css'
 
 export default class Item extends Component {
@@ -19,7 +19,7 @@ export default class Item extends Component {
       <div className="solo-image">
 
         <section className="photo">
-        <img src={this.props.eachItem.image} className='closet-item'/>
+        <img src={this.props.eachItem.image} className='closet-item' alt={`item-${this.props.eachItem.id}`}/>
         <div className='polaroid'>
           <Button className='delete-button' animated basic color='red' compact size='tiny' onClick={this.handleClick} value={this.props.eachItem.id}>
             <Button.Content visible type='click' >Delete Item</Button.Content>

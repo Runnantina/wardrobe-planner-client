@@ -78,12 +78,13 @@ export default class ClosetContainer extends Component{
   }
 
   deleteItemTag(item_id){
-    console.log(item_id);
     Adaptors.destroyItem(item_id)
       .then( () => {
         this.setState( previousState => {
+          debugger
           return {
-            items: previousState.items.filter( item => item.id !== item_id )
+            items: previousState.items.filter( item => item.id !== item_id ),
+            itemTags: previousState.itemTags.filter( item => item.id !== item_id )
           }
         })
       })
@@ -93,7 +94,7 @@ export default class ClosetContainer extends Component{
     return(
       <div>
         <SearchBar tags={this.state.tags} onSubmit={this.onSubmitTagSearch}/>
-        <ItemsList itemTags={this.state.itemTags} deleteItemTag={this.deleteItemTag}/>
+        <ItemsList itemTags={this.state.itemTags} items={this.state.items} deleteItemTag={this.deleteItemTag}/>
         <div className = "container">
           <Route path = '/upload' render= {() => <NewItemForm tags={this.state.tags} getTags={this.getTags} onSubmitTag={this.createTag} onSubmitIDs={this.createItemTag}/>}/>
           <Route path = '/my_collections' render= {() =>(
@@ -107,6 +108,3 @@ export default class ClosetContainer extends Component{
     )
   }
 }
-
-
-// <Route exact path = '/my_collections' render= {() =>}/>

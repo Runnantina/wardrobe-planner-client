@@ -17,7 +17,6 @@ class App extends Component {
           </Menu>
         </div>
         <div className="App-header2">
-          <h1 className='title'>Wardrobe Planner</h1>
         </div>
         <div className="App-Body">
           <ClosetContainer/>
