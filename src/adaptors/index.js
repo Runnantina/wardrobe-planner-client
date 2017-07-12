@@ -16,7 +16,9 @@ export class Adaptors {
     return fetch(baseURL + `/tagitems`, {
       method: 'POST',
       headers: this.headers(),
-      body: JSON.stringify({searchTags})
+      body: JSON.stringify({
+        searchTags
+      })
     })
     .then(res => res.json())
   }

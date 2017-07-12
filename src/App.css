@@ -2,6 +2,10 @@ img {
   image-rendering: pixelated;
 }
 
+body {
+  background-image: url('https://i.ytimg.com/vi/6xYwEGXXMeU/maxresdefault.jpg');
+}
+
 .collection-search {
   padding-left: 1px;
   padding-top: 5px;
@@ -12,7 +16,10 @@ img {
 .menu {
   padding: 8px;
   padding-top: 10px;
+  padding-bottom: 50px;
+  height: 40px;
   color: yellow;
+  background-color: #EDC2C4;
 }
 
 .App {
@@ -20,16 +27,19 @@ img {
   font-family: 'Scada', sans-serif;
 }
 
-.App-header2 {
+/*.App-header2 {
   height: 10px;
   padding: 30px;
   color: black;
   font-family: 'Scada', sans-serif;
-}
+}*/
 
 h1.title {
   font-family: 'Scada', sans-serif;
-  font-size: 310px
+  font-size: 290px;
+  padding-left: 20px;
+  padding-top: 100px;
+  background-color: #EDC2C4
 }
 
 .App-intro {
@@ -39,18 +49,45 @@ h1.title {
 
 .App-Body {
   padding: 10px;
+  background-color: #EDC2C4;
+  /*background-image: url("../src/images/polaroid.png");*/
+
 }
 
 .upload-form {
   padding-top: 50px;
   height: 80px;
-  padding-bottom: 80px;
+  padding-bottom: 250px;
 }
 
-#photo {
-
+.photo {
+  position: relative;
+  padding: 20px;
 }
 
+.closet-item {
+  width: 200px;
+  height: 240px;
+  position: absolute;
+}
+
+.polaroid {
+  width: 220px;
+  height: 260px;
+  position: relative;
+  background-size: contain;
+  background-image:  url("../src/images/polaroid.png");
+}
+
+.delete-button {
+  position: absolute;
+  bottom: -220px;
+  left: 55px;
+}
+
+.search-form {
+  padding-bottom: 10px;
+}
 
 
 @keyframes App-logo-spin {

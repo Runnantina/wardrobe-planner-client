@@ -29,22 +29,21 @@ export default class SearchBar extends Component {
 
     render(){
       return (
-        <Form>
+        <Form className='search-form'>
           <h4 className='search-title'>Search Your Closet Here</h4>
-        <Form.Group widths="equal">
-        <Form.Dropdown search selection multiple
-        value={this.state.searchTags}
-        placeholder='search through tags'
-        name = 'searchTags'
-        options={this.tags()}
-        onChange={this.handleChange}
-        />
-      <Form.Button compact size='small' basic color='black'
-        onClick={this.handleClick}
-
-        content='Search'
-        />
-        </Form.Group>
+          <Form.Group widths="equal">
+            <Form.Dropdown search selection multiple
+            value={this.state.searchTags}
+            placeholder='search through tags'
+            name = 'searchTags'
+            options={this.tags()}
+            onChange={this.handleChange}
+            />
+            <Form.Button compact size='small' basic color='black'
+              onClick={this.handleClick}
+              content='Search'
+            />
+          </Form.Group>
         </Form>
 
     )}

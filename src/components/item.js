@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Image, Button, Icon } from 'semantic-ui-react'
+import '../App.css'
 
 export default class Item extends Component {
   constructor(props){
@@ -17,17 +18,17 @@ export default class Item extends Component {
     return(
       <div className="solo-image">
 
-        <section id="photo">
-        <Image src={this.props.eachItem.image} size='small' centered/>
+        <section className="photo">
+        <img src={this.props.eachItem.image} className='closet-item'/>
+        <div className='polaroid'>
+          <Button className='delete-button' animated basic color='red' compact size='tiny' onClick={this.handleClick} value={this.props.eachItem.id}>
+            <Button.Content visible type='click' >Delete Item</Button.Content>
+            <Button.Content hidden>
+              <Icon name='trash' />
+            </Button.Content>
+          </Button>
+        </div>
         </section>
-
-        <Button animated basic color='red' compact size='tiny' onClick={this.handleClick} value={this.props.eachItem.id}>
-          <Button.Content visible type='click' >Delete Item</Button.Content>
-          <Button.Content hidden>
-            <Icon name='trash' />
-          </Button.Content>
-        </Button>
-
       </div>
       )
     }

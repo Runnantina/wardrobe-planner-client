@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button, Header } from 'semantic-ui-react'
-
+import '../App.css'
 import '../index.css';
 
 class Popup extends React.Component {

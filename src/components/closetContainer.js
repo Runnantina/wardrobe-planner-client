@@ -6,6 +6,7 @@ import NewItemForm from './newItemForm'
 import CollectionSearch from './collectionSearch'
 import CollectionList from './collectionList'
 import { Route } from 'react-router-dom'
+import '../App.css'
 
 
 export default class ClosetContainer extends Component{
