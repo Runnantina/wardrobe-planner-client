@@ -33,7 +33,7 @@ export default class CollectionSearch extends Component {
     render(){
       return (
         <div className="collection-search">
-          <h3>My Collections</h3><br></br>
+          <h2 className='collection-form-title'>My Collections</h2><br></br>
         <Form>
         <Form.Group>
           <Form.Dropdown search selection

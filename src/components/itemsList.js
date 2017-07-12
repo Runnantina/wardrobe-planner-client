@@ -20,7 +20,7 @@ export default class itemList extends Component {
     return(
       <div>
         <ul>
-        {this.state.message ?  <Header as='h4'>No items match your search!</Header> : this.props.itemTags.map(item => <Item eachItem={item} deleteItemTag={this.props.deleteItemTag}/>)}
+        {this.state.message ?  <p className="no-item">No items match your search!</p> : this.props.itemTags.map(item => <Item eachItem={item} deleteItemTag={this.props.deleteItemTag}/>)}
         </ul>
       </div>
     )

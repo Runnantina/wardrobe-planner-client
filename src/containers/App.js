@@ -10,13 +10,14 @@ class App extends Component {
     return (
       <div className="App">
         <div className='menu'>
-          <Menu text vertical>
+          <Menu text vertical >
             <Menu.Item name='Home' as={Link} to='/' />
             <Menu.Item name='Collections' as={Link} to='/my_collections' />
             <Menu.Item name='Upload' as={Link} to='/upload' />
           </Menu>
         </div>
         <div className="App-header2">
+          <h1 className='title'>Your</h1>
         </div>
         <div className="App-Body">
           <ClosetContainer/>

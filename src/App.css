@@ -10,6 +10,11 @@ body {
   padding-top: 5px;
   padding-bottom: 20px;
   text-align: center;
+  background-color: #EDC2C4;
+}
+
+h2.collection-form-title {
+  color: yellow;
 }
 
 .menu {
@@ -24,6 +29,7 @@ body {
 .App {
   text-align: left;
   font-family: 'Scada', sans-serif;
+  background-color: white;
   background-image: url("../src/images/wardrobe-background.png");
   min-height: 500px;
 
@@ -32,20 +38,23 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
 }
 
-/*.App-header2 {
+.App-header2 {
   height: 10px;
   padding: 30px;
   color: black;
   font-family: 'Scada', sans-serif;
-}*/
+}
 
 h1.title {
   font-family: 'Scada', sans-serif;
   font-size: 290px;
   padding-left: 20px;
-  padding-top: 50px;
+  padding-top: 30px;
+  color: white;
+  opacity: 90%;
   /*background-color: white;*/
   /*background-color: #EDC2C4*/
 }
@@ -66,11 +75,21 @@ h1.title {
   padding-top: 50px;
   height: 80px;
   padding-bottom: 250px;
+  /*background-color: #EDC2C4;*/
 }
 
 .photo {
   position: relative;
   padding: 20px;
+
+}
+
+.solo-image {
+}
+
+.no-item {
+  color: white;
+  font-weight: bolder;
 }
 
 .closet-item {
@@ -96,6 +115,7 @@ h1.title {
 .search-form {
   padding-bottom: 10px;
   height: 110px;
+  color: yellow;
   background-color: #EDC2C4;
 }
 
