@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button, Header } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 import '../App.css'
 import '../index.css';
 
@@ -32,7 +32,6 @@ class NewItemForm extends Component {
   }
 
   popup(value) {
-  console.log('fired ok');
   this.setState({
     visible: true,
     value: value
@@ -60,7 +59,7 @@ class NewItemForm extends Component {
     return(
       <div>
         <Form className="upload-form" onSubmit={this.handleSubmitAll}>
-        <label  className="form_labels"><Header as='h4'>Add A Piece To Your Wardrobe</Header></label>
+        <label  className="form_labels"><h3 className='upload-title'>Add A Piece To Your Wardrobe</h3></label>
         <br></br>
           <Form.Group widths='equal'>
           <Form.Input label="Image" type='text' className="form-control" placeholder="image url" id="url" value={this.state.url} onChange={this.handleChange}/>

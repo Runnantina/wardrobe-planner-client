@@ -34,7 +34,7 @@ export default class CollectionSearch extends Component {
       return (
         <div className="collection-search">
           <h2 className='collection-form-title' align="center">My Collections</h2><br></br>
-        <Form>
+        <Form widths='equal'>
         <Form.Group>
           <Form.Dropdown search selection
             value={this.state.collectionSearch}
@@ -47,6 +47,7 @@ export default class CollectionSearch extends Component {
         <Form.Button basic color='black' compact size='tiny'
             onClick={this.handleClick}
             content='Search'
+            floated ='left'
           />
         </Form.Group>
         </Form>
