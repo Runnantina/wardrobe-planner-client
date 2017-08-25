@@ -34,6 +34,17 @@ export class Adaptors {
     }).then(res => res.json() )
   }
 
+  static destroyCollectionItem(item_id, collection_id){
+    return fetch(`${baseURL}/collection_items`,{
+      method: 'DELETE',
+      headers: this.headers(),
+      body: JSON.stringify({
+        item_id,
+        collection_id
+      })
+    }).then(res => res.json())
+  }
+
   static createTag(item_url, tags_arr){
     console.log(tags_arr)
     return fetch(`${baseURL}/tags`, {

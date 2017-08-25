@@ -5,6 +5,8 @@ import ItemsList from './itemsList'
 import NewItemForm from './newItemForm'
 import CollectionSearch from './collectionSearch'
 import CollectionList from './collectionList'
+import LogInForm from './logInForm'
+
 import { Route } from 'react-router-dom'
 import '../App.css'
 
@@ -18,18 +20,19 @@ export default class ClosetContainer extends Component{
       searchTags: '',
       itemTags: [],
       collections: [],
-      oneCollection: [],
-      collectionItems:[]
+      oneCollection: []
+      // collectionItems:[]
     }
     this.onSubmitTagSearch = this.onSubmitTagSearch.bind(this)
     this.onSubmitSelectCollection = this.onSubmitSelectCollection.bind(this)
     this.createTag = this.createTag.bind(this)
     this.deleteItemTag = this.deleteItemTag.bind(this)
+    this.deleteCollectionItem = this.deleteCollectionItem.bind(this)
     this.getCollections = this.getCollections.bind(this)
     this.showCollection = this.showCollection.bind(this)
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getItems()
     this.getTags()
     this.getCollections()
@@ -81,7 +84,6 @@ export default class ClosetContainer extends Component{
     Adaptors.destroyItem(item_id)
       .then( () => {
         this.setState( previousState => {
-          debugger
           return {
             items: previousState.items.filter( item => item.id !== item_id ),
             itemTags: previousState.itemTags.filter( item => item.id !== item_id )
@@ -90,17 +92,29 @@ export default class ClosetContainer extends Component{
       })
   }
 
+  deleteCollectionItem(item_id, collection_id){
+    Adaptors.destroyCollectionItem(item_id, collection_id)
+      // .then( () => {
+      //   this.setState( previousState => {
+      //     return {
+      //       // collectionItems: previousState.collectionItems.filter( item => item.id !== item_id ),
+      //       oneCollection: previousState.oneCollection.items.filter( item => item.id !== item_id )
+      //     }
+      //   })
+      // })
+  }
+
   render(){
     return(
       <div>
         <SearchBar tags={this.state.tags} onSubmit={this.onSubmitTagSearch}/>
         <ItemsList itemTags={this.state.itemTags} items={this.state.items} deleteItemTag={this.deleteItemTag}/>
         <div className = "container">
-          <Route path = '/upload' render= {() => <NewItemForm tags={this.state.tags} getTags={this.getTags} onSubmitTag={this.createTag} onSubmitIDs={this.createItemTag}/>}/>
-          <Route path = '/my_collections' render= {() =>(
+          <Route path = '/closet/upload' render= {() => <NewItemForm tags={this.state.tags} getTags={this.getTags} onSubmitTag={this.createTag} onSubmitIDs={this.createItemTag}/>}/>
+          <Route path = '/closet/my_collections' render= {() =>(
             <div>
               <CollectionSearch collections={this.state.collections} onSubmitSelectCollection={this.onSubmitSelectCollection}/>
-              <CollectionList oneCollection={this.state.oneCollection}/>
+              <CollectionList oneCollection={this.state.oneCollection} deleteCollectionItem={this.deleteCollectionItem}/>
             </div>
           )} />
         </div>

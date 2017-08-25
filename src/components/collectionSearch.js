@@ -13,14 +13,16 @@ export default class CollectionSearch extends Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
+
+  // dropdown box
   handleChange = (e, { name, value }) => {
     this.setState({[name]: value})
   }
 
+  //
   handleClick = () => {
     this.props.onSubmitSelectCollection(this.state.collectionSearch)
   }
-
 
   collections = () => {
     const collections = this.props.collections.sort((a, b) => a.name.localeCompare(b.name))

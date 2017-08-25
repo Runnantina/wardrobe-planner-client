@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Item from './item'
-import { Header } from 'semantic-ui-react'
 
 export default class itemList extends Component {
   constructor(){
@@ -20,7 +19,7 @@ export default class itemList extends Component {
     return(
       <div>
         <ul>
-        {this.state.message ?  <p className="no-item">No items match your search!</p> : this.props.itemTags.map(item => <Item eachItem={item} deleteItemTag={this.props.deleteItemTag}/>)}
+        {this.state.message ?  <p className="no-item"> No items match your search!</p> : this.props.itemTags.map(item => <Item eachItem={item} deleteItemTag={this.props.deleteItemTag}/>)}
         </ul>
       </div>
     )

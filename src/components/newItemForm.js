@@ -3,7 +3,7 @@ import { Form, Button } from 'semantic-ui-react'
 import '../App.css'
 import '../index.css';
 
-class Popup extends React.Component {
+class Popup extends Component {
   constructor(props) {
     super(props)
   }
