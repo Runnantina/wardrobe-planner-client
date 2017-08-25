@@ -12,22 +12,32 @@ export class Adaptors {
       .then(res => res.json())
   }
 
-  static ItemsByTag(tag_id){
-    return fetch(baseURL + `/tags/${tag_id}/items`)
+  static ItemsByTag(searchTags){
+    return fetch(baseURL + `/tagitems`, {
+      method: 'POST',
+      headers: this.headers(),
+      body: JSON.stringify({
+        searchTags
+      })
+    })
     .then(res => res.json())
   }
 
-  static destroyTag(tag_id){
-    return fetch(`${baseURL}/tags/${tag_id}`, {
+  static destroyItem(item_id){
+    return fetch(`${baseURL}/items/${item_id}`, {
       method: 'DELETE'
     }).then(res => res.json() )
   }
 
-  static headers(){
-    return {
-      'content-type': 'application/json',
-      'accept': 'application/json'
-    }
+  static destroyCollectionItem(item_id, collection_id){
+    return fetch(`${baseURL}/collection_items`,{
+      method: 'DELETE',
+      headers: this.headers(),
+      body: JSON.stringify({
+        item_id,
+        collection_id
+      })
+    }).then(res => res.json())
   }
 
   static createTag(item_url, tags_arr){
@@ -42,15 +52,25 @@ export class Adaptors {
     }).then(response => response.json())
   }
 
-}
+  static Collections(){
+    return fetch(baseURL + '/collections')
+      .then(res => res.json())
+  }
 
-// static createItem(item){
-//   return fetch(`${baseURL}/items`, {
-//     method: 'POST',
-//     headers: this.headers(),
-//     body: JSON.stringify({
-//       image: item
-//     })
-//   }).then(response => response.json())
-// }
-//
+  static showCollection(collection_id){
+    return fetch(baseURL + `/collections/${parseInt(collection_id, 10)}`)
+      .then(res => res.json())
+  }
+
+  static ItemsByCollection(item_id){
+    return fetch(baseURL + `/collections/${item_id}/items`)
+    .then(res => res.json())
+  }
+
+  static headers(){
+    return {
+      'content-type': 'application/json',
+      'accept': 'application/json'
+    }
+  }
+}

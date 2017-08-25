@@ -1,25 +1,40 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Form, Button, Input } from 'semantic-ui-react'
-
+import { Form, Button } from 'semantic-ui-react'
+import '../App.css'
 import '../index.css';
+
+class Popup extends Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    const { value } = this.props
+    return (
+      <div className="popup">
+        <p>{value}</p>
+      </div>
+      )
+    }
+  }
+
 
 class NewItemForm extends Component {
   constructor(props){
     super(props)
     this.state = {
       url: "",
-      tags: []
+      tags: [],
+      visible: false,
+      value: ''
     }
-    this.handleChangeItem = this.handleChangeItem.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmitAll = this.handleSubmitAll.bind(this)
-
   }
 
-  handleChangeItem(e){
-    this.setState({
-      url: e.target.value,
+  popup(value) {
+  this.setState({
+    visible: true,
+    value: value
     })
   }
 
@@ -40,18 +55,21 @@ class NewItemForm extends Component {
   }
 
   render(){
+    const popup = (this.state.visible ? <Popup value={this.state.value} /> : null)
     return(
       <div>
-        <Form className="normal_text" onSubmit={this.handleSubmitAll}>
-        <label for="Images" className="form_labels">Add A Piece To Your Wardrobe</label>
+        <Form className="upload-form" onSubmit={this.handleSubmitAll}>
+        <label  className="form_labels"><h3 className='upload-title'>Add A Piece To Your Wardrobe</h3></label>
         <br></br>
-          <Form.Group widths='equal' >
-          <Form.Input label="image" type='text' className="form-control" placeholder="image url" id="url" value={this.state.url} onChange={this.handleChange}/>
-          <Form.Input label="tag" type='text' className="form-control" placeholder="tag it here" id="tags" value={this.state.tags} onChange={this.handleChange}/>
+          <Form.Group widths='equal'>
+          <Form.Input label="Image" type='text' className="form-control" placeholder="image url" id="url" value={this.state.url} onChange={this.handleChange}/>
+          <Form.Input label="Tag Your Image" type='text' className="form-control" placeholder="tag words in here" id="tags" value={this.state.tags} onChange={this.handleChange}/>
           </Form.Group>
-            <Button type='submit' className="btn event_button" >add</Button>
+            {popup}
+            <Button floated='right' size='tiny' color='black' type='submit' className="btn event_button" >
+              <div key={0} onClick={() => this.popup('Item Added!')}>Upload</div>
+            </Button>
         </Form>
-
       </div>
     )
   }
