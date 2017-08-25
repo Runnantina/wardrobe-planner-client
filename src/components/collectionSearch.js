@@ -13,13 +13,11 @@ export default class CollectionSearch extends Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-
   // dropdown box
   handleChange = (e, { name, value }) => {
     this.setState({[name]: value})
   }
 
-  //
   handleClick = () => {
     this.props.onSubmitSelectCollection(this.state.collectionSearch)
   }
@@ -30,7 +28,7 @@ export default class CollectionSearch extends Component {
       const x = {key: `${collection.id}`, value: `${collection.id}`, text: `${collection.name}`}
       return x
     })
-    }
+  }
 
     render(){
       return (

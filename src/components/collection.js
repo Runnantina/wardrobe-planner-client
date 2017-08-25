@@ -10,9 +10,7 @@ export default class Collection extends Component {
   }
 
   handleClick =(e, object) => { //or "object"'s shorthand: {value}
-  debugger;
     this.props.deleteItem(object.value.item_id, object.value.collection_id)
-    // this.props.deleteCollectionItem(object.value.item_id, object.value.collection_id)
   }
 
   render(){

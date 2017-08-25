@@ -23,11 +23,6 @@ export class Adaptors {
     .then(res => res.json())
   }
 
-  // static showItemsError(item_id){
-  //   return fetch(baseURL + `/items/${item_id}`)
-  //   .then(res => res.json())
-  // }
-
   static destroyItem(item_id){
     return fetch(`${baseURL}/items/${item_id}`, {
       method: 'DELETE'
@@ -56,8 +51,6 @@ export class Adaptors {
       })
     }).then(response => response.json())
   }
-
-  // handling collections
 
   static Collections(){
     return fetch(baseURL + '/collections')

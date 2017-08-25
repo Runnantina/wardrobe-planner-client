@@ -21,7 +21,6 @@ export default class ClosetContainer extends Component{
       itemTags: [],
       collections: [],
       oneCollection: []
-      // collectionItems:[]
     }
     this.onSubmitTagSearch = this.onSubmitTagSearch.bind(this)
     this.onSubmitSelectCollection = this.onSubmitSelectCollection.bind(this)
@@ -61,7 +60,6 @@ export default class ClosetContainer extends Component{
   showCollection(collectionSearch){
     Adaptors.showCollection(collectionSearch)
       .then(oneCollection => this.setState({oneCollection}))
-    // by searching for collections, we push in the entire collection objects to then display out their items
   }
 
   createTag(item_url, tags_arr){
@@ -94,14 +92,11 @@ export default class ClosetContainer extends Component{
 
   deleteCollectionItem(item_id, collection_id){
     Adaptors.destroyCollectionItem(item_id, collection_id)
-      // .then( () => {
-      //   this.setState( previousState => {
-      //     return {
-      //       // collectionItems: previousState.collectionItems.filter( item => item.id !== item_id ),
-      //       oneCollection: previousState.oneCollection.items.filter( item => item.id !== item_id )
-      //     }
-      //   })
-      // })
+      this.setState( previousState => {
+        return {
+          oneCollection: { items: previousState.oneCollection.items.filter( item => item.id !== item_id ) }
+        }
+      })
   }
 
   render(){
