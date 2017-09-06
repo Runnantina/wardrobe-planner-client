@@ -67,6 +67,29 @@ export class Adaptors {
     .then(res => res.json())
   }
 
+// work in progress
+// creating CollectionItems
+  static createCollectionItems(collection_id, item_id){
+    return fetch(`${baseURL}/collection_items`, {
+      method: 'POST',
+      headers: this.headers(),
+      body: JSON.stringify({
+        collection_id: collection_id,
+        item_id: item_id
+      })
+    }).then(response => response.json())
+  }
+
+  static createNewCollection(collection_name){
+    return fetch(`${baseURL}/collections`, {
+      method: 'POST',
+      headers: this.headers(),
+      body: JSON.stringify({
+        name: collection_name
+      })
+    }).then(response => response.json())
+  }
+
   static headers(){
     return {
       'content-type': 'application/json',

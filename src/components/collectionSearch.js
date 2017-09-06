@@ -13,7 +13,6 @@ export default class CollectionSearch extends Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  // dropdown box
   handleChange = (e, { name, value }) => {
     this.setState({[name]: value})
   }
@@ -34,24 +33,24 @@ export default class CollectionSearch extends Component {
       return (
         <div className="collection-search">
           <h2 className='collection-form-title' align="center">My Collections</h2><br></br>
-        <Form widths='equal'>
-        <Form.Group>
-          <Form.Dropdown search selection
-            value={this.state.collectionSearch}
-            placeholder='select collections'
-            name = 'collectionSearch'
-            options={this.collections()}
-            onChange={this.handleChange}
-          />
+          <Form widths='equal'>
+          <Form.Group>
+            <Form.Dropdown search selection
+              value={this.state.collectionSearch}
+              placeholder='select collections'
+              name = 'collectionSearch'
+              options={this.collections()}
+              onChange={this.handleChange}
+            />
 
-        <Form.Button basic color='black' compact size='tiny'
-            onClick={this.handleClick}
-            content='Search'
-            floated ='left'
-          />
-        </Form.Group>
-        </Form>
-      </div>
+            <Form.Button basic color='black' compact size='tiny'
+                onClick={this.handleClick}
+                content='Search'
+                floated ='left'
+            />
+          </Form.Group>
+          </Form>
+        </div>
 
     )}
 }

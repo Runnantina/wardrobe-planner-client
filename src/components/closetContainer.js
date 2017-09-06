@@ -6,6 +6,8 @@ import NewItemForm from './newItemForm'
 import CollectionSearch from './collectionSearch'
 import CollectionList from './collectionList'
 import LogInForm from './logInForm'
+import CreateCollectionForm from './createCollectionForm'
+import AddToCollectionForm from './addToCollectionForm'
 
 import { Route } from 'react-router-dom'
 import '../App.css'
@@ -20,7 +22,9 @@ export default class ClosetContainer extends Component{
       searchTags: '',
       itemTags: [],
       collections: [],
-      oneCollection: []
+      oneCollection: [],
+      collectionName: ''
+
     }
     this.onSubmitTagSearch = this.onSubmitTagSearch.bind(this)
     this.onSubmitSelectCollection = this.onSubmitSelectCollection.bind(this)
@@ -29,6 +33,9 @@ export default class ClosetContainer extends Component{
     this.deleteCollectionItem = this.deleteCollectionItem.bind(this)
     this.getCollections = this.getCollections.bind(this)
     this.showCollection = this.showCollection.bind(this)
+    this.getItems = this.getItems.bind(this)
+    this.createNewCollection = this.createNewCollection.bind(this)
+    this.createCollectionItems = this.createCollectionItems.bind(this)
   }
 
   componentDidMount() {
@@ -62,6 +69,7 @@ export default class ClosetContainer extends Component{
       .then(oneCollection => this.setState({oneCollection}))
   }
 
+
   createTag(item_url, tags_arr){
     Adaptors.createTag(item_url, tags_arr)
   } //creates both tag.keyword and item.image
@@ -69,6 +77,23 @@ export default class ClosetContainer extends Component{
   createItemTag(item_id, tag_id){
     Adaptors.createItemTag(item_id, tag_id)
   }
+
+//
+
+  createCollectionItems(collection_id, item_id){
+    console.log(collection_id, item_id);
+    Adaptors.createCollectionItems(collection_id, item_id)
+  }
+
+  createNewCollection(collection_name_input){
+    debugger
+    // collection_name_input has to be a "" for controller
+    Adaptors.createNewCollection(collection_name_input)
+      .then(collectionName => this.setState({collectionName}))
+  }
+
+
+//
 
   onSubmitTagSearch(searchTags){
     this.getItemTags(searchTags)
@@ -99,13 +124,14 @@ export default class ClosetContainer extends Component{
       })
   }
 
+
   render(){
     return(
       <div>
-        <SearchBar tags={this.state.tags} onSubmit={this.onSubmitTagSearch}/>
-        <ItemsList itemTags={this.state.itemTags} items={this.state.items} deleteItemTag={this.deleteItemTag}/>
         <div className = "container">
           <Route path = '/closet/upload' render= {() => <NewItemForm tags={this.state.tags} getTags={this.getTags} onSubmitTag={this.createTag} onSubmitIDs={this.createItemTag}/>}/>
+          <Route path = '/closet/new_collection' render= {() => <CreateCollectionForm allItems={this.state.items} createNewCollection={this.createNewCollection}/>}/>
+          <Route path = '/closet/add_to_collection' render= {() => <AddToCollectionForm existingCollections={this.state.collections} onSubmitSelectCollection={this.onSubmitSelectCollection}/>}/>
           <Route path = '/closet/my_collections' render= {() =>(
             <div>
               <CollectionSearch collections={this.state.collections} onSubmitSelectCollection={this.onSubmitSelectCollection}/>
@@ -113,6 +139,8 @@ export default class ClosetContainer extends Component{
             </div>
           )} />
         </div>
+        <SearchBar tags={this.state.tags} onSubmit={this.onSubmitTagSearch}/>
+        <ItemsList itemTags={this.state.itemTags} items={this.state.items} deleteItemTag={this.deleteItemTag}/>
       </div>
     )
   }

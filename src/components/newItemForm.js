@@ -22,7 +22,7 @@ class NewItemForm extends Component {
   constructor(props){
     super(props)
     this.state = {
-      url: "",
+      url: '',
       tags: [],
       visible: false,
       value: ''
@@ -59,11 +59,25 @@ class NewItemForm extends Component {
     return(
       <div>
         <Form className="upload-form" onSubmit={this.handleSubmitAll}>
-        <label  className="form_labels"><h3 className='upload-title'>Add A Piece To Your Wardrobe</h3></label>
+        <label  className="form_labels"><h3 className='upload-title'>Add To Your Wardrobe</h3></label>
         <br></br>
           <Form.Group widths='equal'>
-          <Form.Input label="Image" type='text' className="form-control" placeholder="image url" id="url" value={this.state.url} onChange={this.handleChange}/>
-          <Form.Input label="Tag Your Image" type='text' className="form-control" placeholder="tag words in here" id="tags" value={this.state.tags} onChange={this.handleChange}/>
+          <Form.Input
+            label="Image"
+            type='text'
+            className="form-control"
+            placeholder="paste image url here"
+            id="url"
+            value={this.state.url}
+            onChange={this.handleChange}/>
+          <Form.Input
+            label="Tag Words Here (no #)"
+            type='text'
+            className="form-control"
+            placeholder="tag words here ( i.e. 'black' or 'long sleeve black blouse' )"
+            id="tags"
+            value={this.state.tags}
+            onChange={this.handleChange}/>
           </Form.Group>
             {popup}
             <Button floated='right' size='tiny' color='black' type='submit' className="btn event_button" >
