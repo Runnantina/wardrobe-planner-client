@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'semantic-ui-react'
+import ItemsToAdd from './itemsToAdd'
+
 
 export default class AddToCollectionForm extends Component {
   constructor(props){
@@ -33,27 +35,28 @@ export default class AddToCollectionForm extends Component {
     return(
       <div className="collection-input-form">
         <h2 className='collection-form-title' align="center">
-          Create New Collection
+          My Collections
         </h2><br></br>
-
           <Form widths='equal'>
             <Form.Group >
               <Form.Dropdown search selection
-                label='Add to Existing Collection'
                 value={this.state.collectionSearch}
-                placeholder='select collections'
+                placeholder='find your collections!'
                 name = 'collectionSearch'
                 options={this.collections()}
                 onChange={this.handleChange}
               />
-              <Form.Input label='Choose Item for Collection' placeholder='(should incorporate Item searchbar menu)'/>
-                <Form.Button basic color='red' compact size='tiny'
-                    content='Create'
-                />
+            <Form.Button basic color='black' compact size='tiny'
+              onClick={this.handleClick}
+              content='Search'
+              floated ='left'
+              />
             </Form.Group>
-
-
-            <Form.Group widths={2}>
+            <Form.Group>
+              <div className='solo-image'>
+                <p>Step 2 : Select Each Item for Your Collection</p>
+                {this.props.allItems.map(item => <ItemsToAdd eachItem={item} allCollections={this.props.allCollections} createCollectionItems={this.props.createCollectionItems}/>)}
+              </div>
             </Form.Group>
           </Form>
 

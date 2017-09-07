@@ -78,22 +78,16 @@ export default class ClosetContainer extends Component{
     Adaptors.createItemTag(item_id, tag_id)
   }
 
-//
-
   createCollectionItems(collection_id, item_id){
     console.log(collection_id, item_id);
     Adaptors.createCollectionItems(collection_id, item_id)
   }
 
   createNewCollection(collection_name_input){
-    debugger
     // collection_name_input has to be a "" for controller
     Adaptors.createNewCollection(collection_name_input)
       .then(collectionName => this.setState({collectionName}))
   }
-
-
-//
 
   onSubmitTagSearch(searchTags){
     this.getItemTags(searchTags)
@@ -129,18 +123,45 @@ export default class ClosetContainer extends Component{
     return(
       <div>
         <div className = "container">
-          <Route path = '/closet/upload' render= {() => <NewItemForm tags={this.state.tags} getTags={this.getTags} onSubmitTag={this.createTag} onSubmitIDs={this.createItemTag}/>}/>
-          <Route path = '/closet/new_collection' render= {() => <CreateCollectionForm allItems={this.state.items} createNewCollection={this.createNewCollection}/>}/>
-          <Route path = '/closet/add_to_collection' render= {() => <AddToCollectionForm existingCollections={this.state.collections} onSubmitSelectCollection={this.onSubmitSelectCollection}/>}/>
+          <Route path = '/closet/upload' render= {() =>
+              <NewItemForm tags={this.state.tags}
+                getTags={this.getTags}
+                onSubmitTag={this.createTag}
+                onSubmitIDs={this.createItemTag}/>}/>
+
+          <Route path = '/closet/new_collection' render= {() =>
+              <CreateCollectionForm
+              allItems={this.state.items}
+              allCollections={this.state.collections}
+              createNewCollection={this.createNewCollection}
+              createCollectionItems={this.createCollectionItems}/>}/>
+
+          <Route path = '/closet/add_to_collection' render= {() =>
+              <AddToCollectionForm
+              existingCollections={this.state.collections}
+              allItems={this.state.items}
+              allCollections={this.state.collections}
+              createCollectionItems={this.createCollectionItems}
+              onSubmitSelectCollection={this.onSubmitSelectCollection}/>}/>
+
           <Route path = '/closet/my_collections' render= {() =>(
             <div>
-              <CollectionSearch collections={this.state.collections} onSubmitSelectCollection={this.onSubmitSelectCollection}/>
-              <CollectionList oneCollection={this.state.oneCollection} deleteCollectionItem={this.deleteCollectionItem}/>
+              <CollectionSearch
+                collections={this.state.collections}
+                onSubmitSelectCollection={this.onSubmitSelectCollection}/>
+              <CollectionList
+                oneCollection={this.state.oneCollection}
+                deleteCollectionItem={this.deleteCollectionItem}/>
             </div>
           )} />
         </div>
-        <SearchBar tags={this.state.tags} onSubmit={this.onSubmitTagSearch}/>
-        <ItemsList itemTags={this.state.itemTags} items={this.state.items} deleteItemTag={this.deleteItemTag}/>
+        <SearchBar
+          tags={this.state.tags}
+          onSubmit={this.onSubmitTagSearch}/>
+        <ItemsList
+          itemTags={this.state.itemTags}
+          items={this.state.items}
+          deleteItemTag={this.deleteItemTag}/>
       </div>
     )
   }

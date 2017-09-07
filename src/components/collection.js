@@ -4,9 +4,7 @@ import { Grid, Button, Icon } from 'semantic-ui-react'
 export default class Collection extends Component {
   constructor(props){
     super(props)
-    this.state = {
 
-    }
   }
 
   handleClick =(e, object) => { //or "object"'s shorthand: {value}
