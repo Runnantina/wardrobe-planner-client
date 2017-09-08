@@ -8,6 +8,7 @@ import CollectionList from './collectionList'
 import LogInForm from './logInForm'
 import CreateCollectionForm from './createCollectionForm'
 import AddToCollectionForm from './addToCollectionForm'
+import ItemsToAdd from './itemsToAdd'
 
 import { Route } from 'react-router-dom'
 import '../App.css'
@@ -54,10 +55,12 @@ export default class ClosetContainer extends Component{
     .then(tags => this.setState({tags}))
   }
 
+//
   getItemTags(searchTags){
     Adaptors.ItemsByTag(searchTags)
     .then(itemTags => this.setState({itemTags}))
   }
+//
 
   getCollections(){
     Adaptors.Collections()
@@ -123,18 +126,23 @@ export default class ClosetContainer extends Component{
     return(
       <div>
         <div className = "container">
+
           <Route path = '/closet/upload' render= {() =>
-              <NewItemForm tags={this.state.tags}
+              <NewItemForm
+                tags={this.state.tags}
                 getTags={this.getTags}
                 onSubmitTag={this.createTag}
                 onSubmitIDs={this.createItemTag}/>}/>
 
-          <Route path = '/closet/new_collection' render= {() =>
+          <Route path = '/closet/new_collection' render= {() => (
+
               <CreateCollectionForm
               allItems={this.state.items}
               allCollections={this.state.collections}
               createNewCollection={this.createNewCollection}
-              createCollectionItems={this.createCollectionItems}/>}/>
+              createCollectionItems={this.createCollectionItems}/>
+
+          )}/>
 
           <Route path = '/closet/add_to_collection' render= {() =>
               <AddToCollectionForm

@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'semantic-ui-react'
+// import ListItemsToAdd from './listItemsToAdd'
 import ItemsToAdd from './itemsToAdd'
-
 
 export default class CreateCollectionForm extends Component {
   constructor(props){
     super(props)
 
     this.state = {
+      selectedCollectionObject: [],
       collectionNameInput: "",
       collection: [],
-      item: []
+      item: [],
+      message: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmitCollectionName = this.handleSubmitCollectionName.bind(this)
@@ -23,13 +25,26 @@ export default class CreateCollectionForm extends Component {
   }
 
   handleSubmitCollectionName = (e) => {
-    e.preventDefault()
-    console.log(this.state.collectionNameInput);
     this.props.createNewCollection(this.state.collectionNameInput)
-    this.setState({
-      collectionNameInput: "",
-    })
+
   }
+
+  componentWillReceiveProps(nextProps){
+    // const selectedCollectionName = nextProps.filter(props => props.name === this.state.collectionNameInput)
+    // console.log(selectedCollectionName);
+    console.log(nextProps);
+    if (nextProps !== this.props ){
+    this.setState({
+      allCollections: nextProps.allCollections,
+      collectionNameInput: nextProps.collectionNameInput
+     })
+    }
+    // const selectedCollectionName = nextProps.allCollections.filter(props=> props.name === this.state.collectionNameInput).name
+    // var selectedCollectionObject= this.state.allCollections.filter(collection => collection.name === selectedCollectionName)
+  }
+
+//
+
 
   render(){
     return(
@@ -45,11 +60,11 @@ export default class CreateCollectionForm extends Component {
                 id='collectionNameInput'
                 value={this.state.collectionNameInput}
                 onChange={this.handleChange} />
-              <Form.Button
-                basic button="black"
-                content="Save Name"
-                onClick={this.handleSubmitCollectionName}
-              />
+                <Form.Button
+                  basic button="black"
+                  content="Save Name"
+                  onClick={this.handleSubmitCollectionName}
+                />
             </Form.Group>
             <Form.Group>
               <div className='solo-image'>
@@ -58,7 +73,12 @@ export default class CreateCollectionForm extends Component {
                   <ItemsToAdd
                     eachItem={item}
                     allCollections={this.props.allCollections}
-                    createCollectionItems={this.props.createCollectionItems}/>)}
+                    createNewCollection={this.props.createNewCollection}
+                    createCollectionItems={this.props.createCollectionItems}
+                    collectionNameInput={this.state.collectionNameInput}
+                    selectedCollectionObject={this.state.selectedCollectionObject}
+                  />
+                )}
               </div>
             </Form.Group>
           </Form>

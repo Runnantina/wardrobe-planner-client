@@ -8,7 +8,7 @@ export default class AddToCollectionForm extends Component {
     super(props)
 
     this.state = {
-      collectionSearch: ""
+      collectionSearchInput: ""
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -18,9 +18,20 @@ export default class AddToCollectionForm extends Component {
     this.setState({[name]: value})
   }
 
-  handleClick = () => {
-    this.props.onSubmitSelectCollection(this.state.collectionSearch)
+  handleClick = (e) => {
+    // when user clicks Save Name, should just mean it's holding the selected collection name
+    // this.props.createCollectionItems(this.state.collectionSearchInput)
   }
+
+  // handleClick = (e, object) => {
+  //   // when user clicks save name, should just mean it's holding the selected collection name
+  //   // this.props.createCollectionItems(this.state.collectionSearchInput)
+  //   this.setState({
+  //     [object.name]: object.value
+  //   })
+  //   debugger
+  //   console.log(this.state.collectionSearchInput);
+  // }
 
   collections = () => {
     const collections = this.props.existingCollections.sort((a, b) => a.name.localeCompare(b.name))
@@ -37,25 +48,32 @@ export default class AddToCollectionForm extends Component {
         <h2 className='collection-form-title' align="center">
           My Collections
         </h2><br></br>
-          <Form widths='equal'>
+      <Form widths='equal'>
             <Form.Group >
               <Form.Dropdown search selection
-                value={this.state.collectionSearch}
+                id='searchCollection'
+                value={this.state.collectionSearchInput}
                 placeholder='find your collections!'
-                name = 'collectionSearch'
+                name = 'collectionSearchInput'
                 options={this.collections()}
                 onChange={this.handleChange}
               />
-            <Form.Button basic color='black' compact size='tiny'
-              onClick={this.handleClick}
-              content='Search'
-              floated ='left'
-              />
-            </Form.Group>
+              <Form.Button basic color='black' compact size='tiny'
+                onClick={this.handleClick}
+                content='Search'
+                floated ='left'
+                />
+              </Form.Group>
+
             <Form.Group>
               <div className='solo-image'>
                 <p>Step 2 : Select Each Item for Your Collection</p>
-                {this.props.allItems.map(item => <ItemsToAdd eachItem={item} allCollections={this.props.allCollections} createCollectionItems={this.props.createCollectionItems}/>)}
+                {this.props.allItems.map(item =>
+                  <ItemsToAdd
+                    eachItem={item}
+                    allCollections={this.props.allCollections}
+                    createCollectionItems={this.props.createCollectionItems}
+                  />)}
               </div>
             </Form.Group>
           </Form>
@@ -67,5 +85,4 @@ export default class AddToCollectionForm extends Component {
 
 }
 
-// be able to put items in existing collections
 // be able to CREATE collection names and calender

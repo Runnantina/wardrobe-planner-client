@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
 import { Button, Icon, Grid } from 'semantic-ui-react'
+import ListItemsToAdd from './listItemsToAdd'
 import '../App.css'
 
 export default class ItemsToAdd extends Component {
   constructor(props){
     super(props)
     this.state ={
-      collection: this.props.allCollections
+      // collectionObject: this.props.selectedCollectionObject
+      // waiting to make existingCollectionObject from addToCollectionForm
     }
 
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick =(e, object) => { //or "object"'s shorthand: {value}
-    // this function puts together the item and collection to make CollectionItem
-    // taking in collection_id, item_id
-    // item_id: object.value
-    let collection = this.state.collection
-    let currentCollectionID = collection[collection.length-1].id
+  // this.state.selectedCollectionObject = this.state.collectionObjects.filter(collection => collection.name === this.state.collectionNameInput)
+
+
+  handleClick =(e, object) => {
+    const collectionObject = this.props.allCollections.filter(collection => collection.name === this.props.collectionNameInput)
+    console.log(collectionObject); // should be THE collection MATCHING the {selected collection by user}
+    debugger
+    const currentCollectionID = collectionObject.id
+    console.log(currentCollectionID, object.value);
     this.props.createCollectionItems(currentCollectionID, object.value)
-    this.setState({
-
-    })
-
   }
 
   render(){
@@ -57,3 +58,12 @@ export default class ItemsToAdd extends Component {
       )
     }
 }
+
+// NOTES: this is what i working without this component being dynamic for both 'createCollectionForm' component
+// handleClick =(e, object) => { //or "object"'s shorthand: {value}
+//   let collection = this.state.collection
+//   let currentCollectionID = collection[collection.length-1].id
+//   this.props.createCollectionItems(currentCollectionID, object.value)
+//   this.setState({
+//   })
+// }
