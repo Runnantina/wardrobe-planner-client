@@ -11,13 +11,12 @@ class LogInForm extends Component {
 
   }
 
-
   render(){
     return(
       <div className='login-form-div'>
         <Form className='login-form'>
           <Form.Field>
-            <h1 className="sign-in-title">Wardrobe</h1>
+            <h1 className="sign-in-title">My Wardrobe</h1>
             <Form.Input label='Username' type='text' />
             <Form.Input label='Password' type='password' />
           </Form.Field>

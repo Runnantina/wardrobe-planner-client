@@ -130,7 +130,7 @@ a.item.home-link {
 }
 
 .popup {
-  color: white;
+  color: red;
 }
 
 .no-item {
@@ -173,7 +173,7 @@ a.item.home-link {
   /*background-color: #D8FFE9; green */
   /*background-color: #EDC2C4;*/
   background-color: white;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 h3.search-form-title {
