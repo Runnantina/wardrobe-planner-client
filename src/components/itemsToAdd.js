@@ -14,17 +14,22 @@ export default class ItemsToAdd extends Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  // this.state.selectedCollectionObject = this.state.collectionObjects.filter(collection => collection.name === this.state.collectionNameInput)
-
-
-  handleClick =(e, object) => {
-    const collectionObject = this.props.allCollections.filter(collection => collection.name === this.props.collectionNameInput)
-    console.log(collectionObject); // should be THE collection MATCHING the {selected collection by user}
-    debugger
-    const currentCollectionID = collectionObject.id
-    console.log(currentCollectionID, object.value);
+  handleClick =(e, object) => { //or "object"'s shorthand: {value}
+    let collection = this.props.allCollections
+    let currentCollectionID = collection[collection.length-1].id
     this.props.createCollectionItems(currentCollectionID, object.value)
+    this.setState({
+    })
   }
+
+  // handleClick =(e, object) => {
+  //   const collectionObject = this.props.allCollections.filter(collection => collection.name === this.props.collectionNameInput)
+  //   console.log(collectionObject); // should be THE collection MATCHING the {selected collection by user}
+  //   debugger
+  //   const currentCollectionID = collectionObject.id
+  //   console.log(currentCollectionID, object.value);
+  //   this.props.createCollectionItems(currentCollectionID, object.value)
+  // }
 
   render(){
     return(

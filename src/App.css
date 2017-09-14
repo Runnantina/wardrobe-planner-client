@@ -17,18 +17,46 @@ form.ui.form.login-form {
 
 .collection-search {
   padding-left: 20px;
-  padding-top: 5px;
+  padding-top: 20px;
   padding-bottom: 100px;
-  text-align: center;
+  text-align: left;
   /*background-color: #EDC2C4;*/
   /*background-color: #CCB7E2; darker purple */
-  background-color: #D2C3E2;
+  /*background-color: #D2C3E2; */
+  background-color: white;
 
   opacity: .9;
 }
 
-h2.collection-form-title {
-  color: yellow;
+h5.step-1 {
+  color: white;
+}
+
+h5.step-2 {
+  color: white;
+}
+
+h1.title {
+  font-family: 'Scada', sans-serif;
+  font-size: 100px;
+  padding-left: 20px;
+  padding-top: 8px;
+  color: white;
+  text-shadow: 4px 4px 2px pink;
+  /*opacity: .98;*/
+  /*background-color: white;*/
+  /*background-color: #EDC2C4*/
+}
+
+.collection-input-form {
+
+  padding-left: 20px;
+
+}
+
+h3.collection-form-title {
+  color: white;
+  text-shadow: 1px 1px 2px red;
 }
 
 .menu {
@@ -36,19 +64,23 @@ h2.collection-form-title {
   padding-top: 5px;
   padding-bottom: 150px;
   height: 40px;
-  color: yellow;
   opacity: .95;
-  background-color: white;
+  background-color: inherit;
   /*background-color: #EDC2C4;*/
+}
+
+a.item.home-link {
+  color: white
 }
 
 .App {
   text-align: left;
   font-family: 'Scada', sans-serif;
   /*background-color: #D8FFE9;*/
+  background: linear-gradient(to right, #ED4264 , #FFEDBC);
   /*background-image: url("../src/images/wardrobe-background.png");*/
-  min-height: 1450px;
-  background-color: pink;
+  min-height: 1650px;
+  background-color: #FFFDFC;
 
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
@@ -65,16 +97,6 @@ h2.collection-form-title {
   font-family: 'Scada', sans-serif;
 }
 
-h1.title {
-  font-family: 'Scada', sans-serif;
-  font-size: 350px;
-  padding-left: 20px;
-  padding-top: 8px;
-  color: white;
-  /*opacity: .98;*/
-  /*background-color: white;*/
-  /*background-color: #EDC2C4*/
-}
 
 .App-intro {
   font-size: large;
@@ -83,39 +105,32 @@ h1.title {
 
 .App-Body {
   /*padding: 10px;*/
-  padding-top: 400px;
+  padding-top: 200px;
   /*background-color: #EDC2C4;*/
 
 }
 
-.ui.text.menu .item.home-link {
-  /*font-weight: bold;*/
-}
 
 .upload-form {
   padding-top: 20px;
   height: 70px;
-  padding-bottom: 250px;
+  padding-bottom: 190px;
   padding-left: 20px;
   padding-right: 20px;
   /*background-color: #989DD3;*/
-  background-color: #EDC2C4;
-  color: yellow;
-  opacity: .95;
+  /*background-color: #EDC2C4; / mauve pink*/
+  background-color: #FFFDFC;
+  opacity: .90;
 }
 
 .upload-title {
-  color: yellow;
+  color: white;
+  text-shadow: 1px 1px 2px red;
+
 }
 
 .popup {
   color: white;
-}
-
-.photo {
-  position: relative;
-  padding: 20px;
-
 }
 
 .no-item {
@@ -127,6 +142,12 @@ h1.title {
   width: 200px;
   height: 240px;
   position: absolute;
+}
+
+.photo {
+  position: relative;
+  padding: 20px;
+
 }
 
 .polaroid {
@@ -149,13 +170,15 @@ h1.title {
   padding-top: 20px;
   height: 150px;
   font-weight: 300;
-  background-color: #D8FFE9;
+  /*background-color: #D8FFE9; green */
   /*background-color: #EDC2C4;*/
+  background-color: white;
   opacity: 0.8;
 }
 
-h2.search-form-title {
-  color: yellow;
+h3.search-form-title {
+  color: white;
+  text-shadow: 1px 1px 2px red;
 }
 
 

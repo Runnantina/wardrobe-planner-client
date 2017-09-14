@@ -80,7 +80,7 @@ class NewItemForm extends Component {
             onChange={this.handleChange}/>
           </Form.Group>
             {popup}
-            <Button floated='right' size='tiny' color='black' type='submit' className="btn event_button" >
+            <Button floated='right' size='tiny' basic color='red' type='submit' className="btn event_button" >
               <div key={0} onClick={() => this.popup('Item Added!')}>Upload</div>
             </Button>
         </Form>

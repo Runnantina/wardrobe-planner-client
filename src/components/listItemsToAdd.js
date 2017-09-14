@@ -30,9 +30,17 @@ export default class listItemsToAdd extends Component {
   render() {
     console.log(this.props.allCollections);
     return(
-        <div className='solo-image'>
-
-        </div>
+      <div className='solo-image'>
+        <p>Step 2 : Select Each Item for Your Collection</p>
+        {this.props.allItems.map(item =>
+          <ItemsToAdd
+            eachItem={item}
+            allCollections={this.props.allCollections}
+            createNewCollection={this.props.createNewCollection}
+            createCollectionItems={this.props.createCollectionItems}
+          />
+        )}
+      </div>
     )
   }
 

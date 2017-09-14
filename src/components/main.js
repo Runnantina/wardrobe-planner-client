@@ -9,15 +9,15 @@ function Main(){
 return (
   <div>
     <div className='menu'>
-      <Menu text vertical >
-        <Menu.Item name='Home' as={Link} to='/closet' className='home-link'/>
-        <Menu.Item name='Collections' as={Link} to='/closet/my_collections' className='home-link'/>
-        <Menu.Item name='Upload' as={Link} to='/closet/upload' className='home-link'/>
-        <Menu.Item name='Log Out' as={Link} to='/login' className='home-link'/>
-      </Menu>
+      <Menu text vertical ><i>
+        <Menu.Item name='#home' as={Link} to='/closet' className='home-link'/>
+        <Menu.Item name='#collections' as={Link} to='/closet/my_collections' className='home-link'/>
+        <Menu.Item name='#upload' as={Link} to='/closet/upload' className='home-link'/>
+        <Menu.Item name='#log out' as={Link} to='/login' className='home-link'/>
+      </i></Menu>
     </div>
       <div className="App-header2">
-        <h1 className='title'>Your</h1>
+        <h1 className='title'><i>#YourWardrobeFilter</i></h1>
       </div>
       <div className="App-Body">
         <Route path='/closet' component={ClosetContainer} />

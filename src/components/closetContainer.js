@@ -9,6 +9,7 @@ import LogInForm from './logInForm'
 import CreateCollectionForm from './createCollectionForm'
 import AddToCollectionForm from './addToCollectionForm'
 import ItemsToAdd from './itemsToAdd'
+import ListItemsToAdd from './listItemsToAdd'
 
 import { Route } from 'react-router-dom'
 import '../App.css'
@@ -25,8 +26,8 @@ export default class ClosetContainer extends Component{
       collections: [],
       oneCollection: [],
       collectionName: ''
-
     }
+
     this.onSubmitTagSearch = this.onSubmitTagSearch.bind(this)
     this.onSubmitSelectCollection = this.onSubmitSelectCollection.bind(this)
     this.createTag = this.createTag.bind(this)
@@ -57,7 +58,7 @@ export default class ClosetContainer extends Component{
 
 //
   getItemTags(searchTags){
-    Adaptors.ItemsByTag(searchTags)
+    Adaptors.ItemsByTag(searchTags) // <<--- this is where the array is turned into an object BEFORE it is set as itemTags
     .then(itemTags => this.setState({itemTags}))
   }
 //
@@ -87,9 +88,12 @@ export default class ClosetContainer extends Component{
   }
 
   createNewCollection(collection_name_input){
-    // collection_name_input has to be a "" for controller
     Adaptors.createNewCollection(collection_name_input)
-      .then(collectionName => this.setState({collectionName}))
+      .then(collectionName => this.setState({
+        collectionName: collectionName,
+        //
+      })
+    )
   }
 
   onSubmitTagSearch(searchTags){
@@ -137,6 +141,16 @@ export default class ClosetContainer extends Component{
           <Route path = '/closet/new_collection' render= {() => (
 
               <CreateCollectionForm
+              allItems={this.state.items}
+              allCollections={this.state.collections}
+              createNewCollection={this.createNewCollection}
+              createCollectionItems={this.createCollectionItems}/>
+
+          )}/>
+
+        <Route path = '/closet/list_items_to_add' render= {() => (
+
+              <ListItemsToAdd
               allItems={this.state.items}
               allCollections={this.state.collections}
               createNewCollection={this.createNewCollection}

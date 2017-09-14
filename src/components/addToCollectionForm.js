@@ -58,7 +58,7 @@ export default class AddToCollectionForm extends Component {
                 options={this.collections()}
                 onChange={this.handleChange}
               />
-              <Form.Button basic color='black' compact size='tiny'
+              <Form.Button color='black' compact size='tiny'
                 onClick={this.handleClick}
                 content='Search'
                 floated ='left'

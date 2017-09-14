@@ -12,7 +12,7 @@ export class Adaptors {
       .then(res => res.json())
   }
 
-  static ItemsByTag(searchTags){
+  static ItemsByTag(searchTags){ // searchTags = itemTags = ["tags tags tags"]
     return fetch(baseURL + `/tagitems`, {
       method: 'POST',
       headers: this.headers(),
@@ -67,8 +67,6 @@ export class Adaptors {
     .then(res => res.json())
   }
 
-// work in progress
-// creating CollectionItems
   static createCollectionItems(collection_id, item_id){
     return fetch(`${baseURL}/collection_items`, {
       method: 'POST',

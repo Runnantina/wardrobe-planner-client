@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'semantic-ui-react'
-// import ListItemsToAdd from './listItemsToAdd'
+import { Route, Link } from 'react-router-dom'
 import ItemsToAdd from './itemsToAdd'
 
 export default class CreateCollectionForm extends Component {
@@ -26,33 +26,16 @@ export default class CreateCollectionForm extends Component {
 
   handleSubmitCollectionName = (e) => {
     this.props.createNewCollection(this.state.collectionNameInput)
-
   }
-
-  componentWillReceiveProps(nextProps){
-    // const selectedCollectionName = nextProps.filter(props => props.name === this.state.collectionNameInput)
-    // console.log(selectedCollectionName);
-    console.log(nextProps);
-    if (nextProps !== this.props ){
-    this.setState({
-      allCollections: nextProps.allCollections,
-      collectionNameInput: nextProps.collectionNameInput
-     })
-    }
-    // const selectedCollectionName = nextProps.allCollections.filter(props=> props.name === this.state.collectionNameInput).name
-    // var selectedCollectionObject= this.state.allCollections.filter(collection => collection.name === selectedCollectionName)
-  }
-
-//
 
 
   render(){
     return(
-      <div className="collection-input-form">
-          <h2 className='collection-form-title' align="center">
+      <div className="collection-input-form" >
+          <h3 className='collection-form-title' align="center">
             Create New Collection
-          </h2><br></br>
-          <h5>Step 1:</h5>
+          </h3><br></br>
+        <h5 className='step-1'>Step 1:</h5>
           <Form widths='equal' >
             <Form.Group >
               <Form.Input
@@ -61,25 +44,26 @@ export default class CreateCollectionForm extends Component {
                 value={this.state.collectionNameInput}
                 onChange={this.handleChange} />
                 <Form.Button
-                  basic button="black"
+                  size='tiny'
+                  color="black"
                   content="Save Name"
                   onClick={this.handleSubmitCollectionName}
                 />
             </Form.Group>
-            <Form.Group>
-              <div className='solo-image'>
-                <p>Step 2 : Select Each Item for Your Collection</p>
-                {this.props.allItems.map(item =>
-                  <ItemsToAdd
-                    eachItem={item}
-                    allCollections={this.props.allCollections}
-                    createNewCollection={this.props.createNewCollection}
-                    createCollectionItems={this.props.createCollectionItems}
-                    collectionNameInput={this.state.collectionNameInput}
-                    selectedCollectionObject={this.state.selectedCollectionObject}
+            <div className='solo-image'>
+              <h5 className='step-2'>Step 2 : Select Each Item for Your Collection</h5>
+              {this.props.allItems.map(item =>
+                <ItemsToAdd
+                  eachItem={item}
+                  allCollections={this.props.allCollections}
+                  createNewCollection={this.props.createNewCollection}
+                  createCollectionItems={this.props.createCollectionItems}
+                  collectionNameInput={this.state.collectionNameInput}
+                  selectedCollectionObject={this.state.selectedCollectionObject}
                   />
-                )}
-              </div>
+              )}
+            </div>
+            <Form.Group>
             </Form.Group>
           </Form>
       </div>

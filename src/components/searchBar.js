@@ -41,7 +41,7 @@ export default class SearchBar extends Component {
     render(){
       return (
         <Form className='search-form'>
-          <h2 className='search-form-title'>Search Your Closet</h2>
+          <h3 className='search-form-title'>Search Your Closet</h3>
           <Form.Group widths="equal">
             <Form.Dropdown search selection multiple
             value={this.state.searchTags}
@@ -50,7 +50,7 @@ export default class SearchBar extends Component {
             options={this.tags()}
             onChange={this.handleChange}
             />
-            <Form.Button compact size='small' basic color='black'
+          <Form.Button compact size='small' color='black'
               onClick={this.handleClick}
               content='Search'
             />
