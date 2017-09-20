@@ -8,7 +8,6 @@ import CollectionList from './collectionList'
 import LogInForm from './logInForm'
 import CreateCollectionForm from './createCollectionForm'
 import AddToCollectionForm from './addToCollectionForm'
-import ItemsToAdd from './itemsToAdd'
 import ListItemsToAdd from './listItemsToAdd'
 
 import { Route } from 'react-router-dom'
@@ -24,6 +23,7 @@ export default class ClosetContainer extends Component{
       searchTags: '',
       itemTags: [],
       collections: [],
+      newlyCreatedCollectionID: [],
       oneCollection: [],
       collectionName: ''
     }
@@ -89,11 +89,14 @@ export default class ClosetContainer extends Component{
 
   createNewCollection(collection_name_input){
     Adaptors.createNewCollection(collection_name_input)
-      .then(collectionName => this.setState({
-        collectionName: collectionName,
-        //
+    .then((object) => {
+      this.setState( previousState => {
+        return {
+          collections: [...previousState.collections, object],
+          newlyCreatedCollectionID: object.id
+        }
       })
-    )
+    })
   }
 
   onSubmitTagSearch(searchTags){
@@ -144,23 +147,24 @@ export default class ClosetContainer extends Component{
               allItems={this.state.items}
               allCollections={this.state.collections}
               createNewCollection={this.createNewCollection}
-              createCollectionItems={this.createCollectionItems}/>
+              createCollectionItems={this.createCollectionItems}
+              newlyCreatedCollectionID={this.state.newlyCreatedCollectionID}
+              tags={this.state.tags}
+              onSubmit={this.onSubmitTagSearch}
+              />
 
           )}/>
 
         <Route path = '/closet/list_items_to_add' render= {() => (
-
               <ListItemsToAdd
               allItems={this.state.items}
               allCollections={this.state.collections}
               createNewCollection={this.createNewCollection}
-              createCollectionItems={this.createCollectionItems}/>
-
-          )}/>
+              newlyCreatedCollectionID={this.state.newlyCreatedCollectionID}
+              createCollectionItems={this.createCollectionItems}/>)}/>
 
           <Route path = '/closet/add_to_collection' render= {() =>
               <AddToCollectionForm
-              existingCollections={this.state.collections}
               allItems={this.state.items}
               allCollections={this.state.collections}
               createCollectionItems={this.createCollectionItems}

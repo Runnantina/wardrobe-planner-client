@@ -1,17 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Form, Button, Modal } from 'semantic-ui-react'
 import '../App.css'
 import { Link } from 'react-router-dom'
 
+const LogInForm = () => {
 
-
-class LogInForm extends Component {
-  constructor(){
-    super()
-
-  }
-
-  render(){
     return(
       <div className='login-form-div'>
         <Form className='login-form'>
@@ -35,8 +28,6 @@ class LogInForm extends Component {
         </Form>
       </div>
     )
-
-  }
 
 }
 

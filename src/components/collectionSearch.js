@@ -32,7 +32,9 @@ export default class CollectionSearch extends Component {
     render(){
       return (
         <div className="collection-search">
-          <h3 className='collection-form-title' align='left'>My Collections</h3><br></br>
+          <h3 className='collection-form-title'>
+            My Collections
+          </h3><br></br>
           <Form widths='equal'>
           <Form.Group>
             <Form.Dropdown search selection
@@ -42,11 +44,10 @@ export default class CollectionSearch extends Component {
               options={this.collections()}
               onChange={this.handleChange}
             />
-
-            <Form.Button color='black' compact size='tiny'
-                onClick={this.handleClick}
-                content='Search'
-                floated ='left'
+            <Form.Button color='black' compact size='small'
+                  onClick={this.handleClick}
+                  content='Search'
+                  floated ='left'
             />
           </Form.Group>
           </Form>

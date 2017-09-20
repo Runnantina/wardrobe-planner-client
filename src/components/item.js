@@ -5,9 +5,6 @@ import '../App.css'
 export default class Item extends Component {
   constructor(props){
     super(props)
-    this.state ={
-
-    }
   }
 
   handleClick =(e, object) => { //or "object"'s shorthand: {value}

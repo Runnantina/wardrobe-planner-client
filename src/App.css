@@ -5,53 +5,65 @@ img {
 body {
 }
 
+.menu {
+  padding: 8px;
+  padding-top: 15px;
+  padding-bottom: 120px;
+  height: 40px;
+  opacity: .9;
+  background-color: inherit;
+  /*background-color: #EDC2C4;*/
+}
+
 form.ui.form.login-form {
   padding: 55px;
   /*background-color: #EDC2C4;*/
-  background-color: white;
 }
 
 .sign-in-title {
   font-size: 130px;
 }
 
+
 .collection-search {
   padding-left: 20px;
+  padding-right: 20px;
   padding-top: 20px;
-  padding-bottom: 100px;
+  padding-bottom: 70px;
   text-align: left;
   /*background-color: #EDC2C4;*/
   /*background-color: #CCB7E2; darker purple */
   /*background-color: #D2C3E2; */
   background-color: white;
-
   opacity: .9;
 }
 
-h5.step-1 {
-  color: white;
+.collection-input-form {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 90px;
+  text-align: left;
+  background-color: white;
+  opacity: .85;
 }
+
+div.fields {
+  background-color: inherit;
+}
+
+h5.step-1 {
+  color: red;
+  text-shadow: 1px 1px 2px pink;}
 
 h5.step-2 {
-  color: white;
+  color: red;
+  text-shadow: 1px 1px 2px pink;
 }
 
-h1.title {
-  font-family: 'Scada', sans-serif;
-  font-size: 100px;
-  padding-left: 20px;
-  padding-top: 8px;
+p.step-2-add {
   color: white;
-  text-shadow: 4px 4px 2px pink;
-  /*opacity: .98;*/
-  /*background-color: white;*/
-  /*background-color: #EDC2C4*/
-}
-
-.collection-input-form {
-
   padding-left: 20px;
-
 }
 
 h3.collection-form-title {
@@ -59,26 +71,16 @@ h3.collection-form-title {
   text-shadow: 1px 1px 2px red;
 }
 
-.menu {
-  padding: 8px;
-  padding-top: 5px;
-  padding-bottom: 150px;
-  height: 40px;
-  opacity: .95;
-  background-color: inherit;
-  /*background-color: #EDC2C4;*/
-}
-
-a.item.home-link {
+a.item.home-link b{
   color: white
 }
 
 .App {
-  text-align: left;
   font-family: 'Scada', sans-serif;
-  /*background-color: #D8FFE9;*/
-  background: linear-gradient(to right, #ED4264 , #FFEDBC);
-  /*background-image: url("../src/images/wardrobe-background.png");*/
+  /*background-color: #ED4264;*/
+  /*background: linear-gradient(to right, #FFEDBC, #D8FFE9);*/
+  /*background: linear-gradient(to right, #ED4264, #FFEDBC);*/
+  background: linear-gradient(to bottom right, #C5B1DB, #EDB6D0);
   min-height: 1650px;
   background-color: #FFFDFC;
 
@@ -88,6 +90,31 @@ a.item.home-link {
   background-repeat: repeat;
   background-size: cover;
 
+}
+
+h1.title {
+  text-align: center;
+  font-family: 'Scada', sans-serif;
+  font-size: 100px;
+  padding-left: 20px;
+  padding-top: 8px;
+  color: white;
+  /*color: #D8C7EA;*/
+  text-shadow: 4px 4px 2px pink;
+  /*opacity: .98;*/
+  /*background-color: white;*/
+  /*background-color: #EDC2C4*/
+}
+
+h3.main-sub-text {
+  color: white;
+  left: 25%;
+  text-align: center;
+  margin: auto;
+  margin-top: -100px;
+  position: relative;
+  top: 43%;
+  width: 100%;
 }
 
 .App-header2 {
@@ -107,20 +134,17 @@ a.item.home-link {
   /*padding: 10px;*/
   padding-top: 200px;
   /*background-color: #EDC2C4;*/
-
 }
-
 
 .upload-form {
   padding-top: 20px;
-  height: 70px;
-  padding-bottom: 190px;
+  padding-bottom: 90px;
   padding-left: 20px;
   padding-right: 20px;
   /*background-color: #989DD3;*/
   /*background-color: #EDC2C4; / mauve pink*/
   background-color: #FFFDFC;
-  opacity: .90;
+  opacity: .85;
 }
 
 .upload-title {
@@ -164,16 +188,22 @@ a.item.home-link {
   left: 55px;
 }
 
+.add-to-collection-button {
+  position: absolute;
+  bottom: -220px;
+  left: 55px;
+}
+
 .search-form {
   padding-bottom: 40px;
   padding-left: 20px;
+  padding-right: 20px;
   padding-top: 20px;
   height: 150px;
   font-weight: 300;
   /*background-color: #D8FFE9; green */
   /*background-color: #EDC2C4;*/
-  background-color: white;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 h3.search-form-title {
@@ -181,6 +211,10 @@ h3.search-form-title {
   text-shadow: 1px 1px 2px red;
 }
 
+.make-collection-button {
+  background-color: white;
+  opacity: 0.9;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

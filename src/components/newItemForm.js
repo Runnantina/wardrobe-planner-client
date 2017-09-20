@@ -57,8 +57,8 @@ class NewItemForm extends Component {
   render(){
     const popup = (this.state.visible ? <Popup value={this.state.value} /> : null)
     return(
-      <div>
-        <Form className="upload-form" onSubmit={this.handleSubmitAll}>
+      <div className="upload-form">
+        <Form onSubmit={this.handleSubmitAll}>
         <label  className="form_labels"><h3 className='upload-title'>Add To Your Wardrobe</h3></label>
         <br></br>
           <Form.Group widths='equal'>

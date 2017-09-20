@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
 import { Button, Icon, Grid } from 'semantic-ui-react'
-import ListItemsToAdd from './listItemsToAdd'
 import '../App.css'
 
 export default class ItemsToAdd extends Component {
   constructor(props){
     super(props)
     this.state ={
-      // collectionObject: this.props.selectedCollectionObject
-      // waiting to make existingCollectionObject from addToCollectionForm
+
     }
 
     this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick =(e, object) => { //or "object"'s shorthand: {value}
-    let collection = this.props.allCollections
-    let currentCollectionID = collection[collection.length-1].id
-    this.props.createCollectionItems(currentCollectionID, object.value)
-    this.setState({
-    })
+    // let collection = this.props.allCollections
+    // let currentCollectionID = collection[collection.length-1].id
+
+    console.log(this.props.newlyCreatedCollectionID, object.value);
+    this.props.createCollectionItems(this.props.newlyCreatedCollectionID, object.value)
   }
 
   // handleClick =(e, object) => {
-  //   const collectionObject = this.props.allCollections.filter(collection => collection.name === this.props.collectionNameInput)
+    // const collectionObject = this.props.allCollections.filter(collection => collection.name === this.props.collectionNameInput)
   //   console.log(collectionObject); // should be THE collection MATCHING the {selected collection by user}
   //   debugger
   //   const currentCollectionID = collectionObject.id
@@ -32,6 +30,7 @@ export default class ItemsToAdd extends Component {
   // }
 
   render(){
+    console.log(this.props.newlyCreatedCollectionID);
     return(
       <div className="solo-image" >
         <Grid>
@@ -42,7 +41,7 @@ export default class ItemsToAdd extends Component {
                 <img src={this.props.eachItem.image} className='closet-item' alt={`item-${this.props.eachItem.id}`}/>
                 <div className='polaroid'>
                   <Button
-                    className='delete-button'
+                    className='add-to-collection-button'
                     animated basic color='red'
                     compact size='tiny'
                     onClick={this.handleClick}
@@ -63,12 +62,3 @@ export default class ItemsToAdd extends Component {
       )
     }
 }
-
-// NOTES: this is what i working without this component being dynamic for both 'createCollectionForm' component
-// handleClick =(e, object) => { //or "object"'s shorthand: {value}
-//   let collection = this.state.collection
-//   let currentCollectionID = collection[collection.length-1].id
-//   this.props.createCollectionItems(currentCollectionID, object.value)
-//   this.setState({
-//   })
-// }

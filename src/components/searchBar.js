@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-
-import { Route, Link } from 'react-router-dom'
-import { Form, Button, Header, Icon, Modal } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
+import { Form, Button, Icon, Modal } from 'semantic-ui-react'
 
 
 export default class SearchBar extends Component {
@@ -42,7 +41,7 @@ export default class SearchBar extends Component {
       return (
         <Form className='search-form'>
           <h3 className='search-form-title'>Search Your Closet</h3>
-          <Form.Group widths="equal">
+          <Form.Group widths='equal'>
             <Form.Dropdown search selection multiple
             value={this.state.searchTags}
             placeholder='search through tags'
@@ -50,45 +49,44 @@ export default class SearchBar extends Component {
             options={this.tags()}
             onChange={this.handleChange}
             />
-          <Form.Button compact size='small' color='black'
-              onClick={this.handleClick}
-              content='Search'
-            />
           </Form.Group>
-        <Form floated='right'>
-        </Form>
-
-        <Modal
-          trigger={<Button onClick={this.handleOpen} basic color='pink' size='mini' >Make Collection</Button>}
-          open={this.state.modalOpen}
-          onClose={this.handleClose}>
-          <Modal.Header></Modal.Header>
-            <Modal.Content>
-              <p>Which would you like to do?</p>
-            </Modal.Content>
-            <Modal.Actions>
-              <Button
-                compact
-                size='small'
-                basic color='teal'
-                as={Link}
-                to='/closet/new_collection'
-                onClick={this.handleClose}>
-                <Icon name='checkmark'/>
-                Create New Collection
-              </Button>
-              <Button
-                compact
-                size='small'
-                basic color='pink'
-                as={Link}
-                to='/closet/add_to_collection'
-                onClick={this.handleClose}>
-                <Icon name='plus'/>
-                Add to Existing Collection
-              </Button>
-            </Modal.Actions>
-        </Modal>
+          <Form.Group widths='fluid'>
+          <Form.Button compact size='small' color='purple'
+            onClick={this.handleClick}
+            content='Search'
+            />
+              <Modal
+                trigger={<Button onClick={this.handleOpen} basic color='purple' compact size='mini' >Make A Collection</Button>}
+                open={this.state.modalOpen}
+                onClose={this.handleClose}>
+                <Modal.Header></Modal.Header>
+                  <Modal.Content>
+                    <p>Which would you like to do?</p>
+                  </Modal.Content>
+                <Modal.Actions>
+                  <Button
+                    compact
+                    size='small'
+                    basic color='teal'
+                    as={Link}
+                    to='/closet/new_collection'
+                    onClick={this.handleClose}>
+                    <Icon name='checkmark'/>
+                    Create New Collection
+                  </Button>
+                  <Button
+                    compact
+                    size='small'
+                    basic color='purple'
+                    as={Link}
+                    to='/closet/add_to_collection'
+                    onClick={this.handleClose}>
+                    <Icon name='plus'/>
+                    Add to Existing Collection
+                  </Button>
+                </Modal.Actions>
+              </Modal>
+            </Form.Group>
         </Form>
 
     )}
