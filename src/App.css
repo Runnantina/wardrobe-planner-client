@@ -12,12 +12,10 @@ body {
   height: 40px;
   opacity: .9;
   background-color: inherit;
-  /*background-color: #EDC2C4;*/
 }
 
 form.ui.form.login-form {
   padding: 55px;
-  /*background-color: #EDC2C4;*/
 }
 
 .sign-in-title {
@@ -31,9 +29,6 @@ form.ui.form.login-form {
   padding-top: 20px;
   padding-bottom: 70px;
   text-align: left;
-  /*background-color: #EDC2C4;*/
-  /*background-color: #CCB7E2; darker purple */
-  /*background-color: #D2C3E2; */
   background-color: white;
   opacity: .9;
 }
@@ -63,6 +58,7 @@ h5.step-2 {
 
 p.step-2-add {
   color: white;
+  text-shadow: 2px 2px 1px red;
   padding-left: 20px;
 }
 
@@ -99,11 +95,7 @@ h1.title {
   padding-left: 20px;
   padding-top: 8px;
   color: white;
-  /*color: #D8C7EA;*/
   text-shadow: 4px 4px 2px pink;
-  /*opacity: .98;*/
-  /*background-color: white;*/
-  /*background-color: #EDC2C4*/
 }
 
 h3.main-sub-text {
@@ -131,9 +123,7 @@ h3.main-sub-text {
 }
 
 .App-Body {
-  /*padding: 10px;*/
   padding-top: 200px;
-  /*background-color: #EDC2C4;*/
 }
 
 .upload-form {
@@ -141,8 +131,6 @@ h3.main-sub-text {
   padding-bottom: 90px;
   padding-left: 20px;
   padding-right: 20px;
-  /*background-color: #989DD3;*/
-  /*background-color: #EDC2C4; / mauve pink*/
   background-color: #FFFDFC;
   opacity: .85;
 }
@@ -154,7 +142,12 @@ h3.main-sub-text {
 }
 
 .popup {
-  color: red;
+  color: white;
+  width: 80px;
+  background-color: red;
+  padding-left: 20px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
 }
 
 .no-item {
@@ -189,9 +182,14 @@ h3.main-sub-text {
 }
 
 .add-to-collection-button {
-  position: absolute;
+  position: relative;
   bottom: -220px;
   left: 55px;
+}
+
+.font-inside-add-button {
+  padding-right: 10px;
+
 }
 
 .search-form {
@@ -202,7 +200,6 @@ h3.main-sub-text {
   height: 150px;
   font-weight: 300;
   /*background-color: #D8FFE9; green */
-  /*background-color: #EDC2C4;*/
   opacity: 0.85;
 }
 

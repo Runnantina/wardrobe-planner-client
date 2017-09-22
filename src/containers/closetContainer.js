@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Adaptors } from '../adaptors/index'
-import SearchBar from './searchBar'
-import ItemsList from './itemsList'
-import NewItemForm from './newItemForm'
-import CollectionSearch from './collectionSearch'
-import CollectionList from './collectionList'
-import LogInForm from './logInForm'
-import CreateCollectionForm from './createCollectionForm'
-import AddToCollectionForm from './addToCollectionForm'
-import ListItemsToAdd from './listItemsToAdd'
+import SearchBar from '../components/searchBar'
+import ItemsList from '../components/itemsList'
+import NewItemForm from '../components/newItemForm'
+import CollectionSearch from '../components/collectionSearch'
+import CollectionList from '../components/collectionList'
+import LogInForm from '../components/logInForm'
+import CreateCollectionForm from '../components/createCollectionForm'
+import AddToCollectionForm from '../components/addToCollectionForm'
+import ListItemsToAdd from '../components/listItemsToAdd'
 
 import { Route } from 'react-router-dom'
 import '../App.css'
@@ -24,8 +24,7 @@ export default class ClosetContainer extends Component{
       itemTags: [],
       collections: [],
       newlyCreatedCollectionID: [],
-      oneCollection: [],
-      collectionName: ''
+      oneCollection: []
     }
 
     this.onSubmitTagSearch = this.onSubmitTagSearch.bind(this)

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ClosetContainer from './closetContainer'
+import ClosetContainer from '../containers/closetContainer'
 import { Menu } from 'semantic-ui-react'
 import { Link, Route } from 'react-router-dom'
 
@@ -39,15 +39,15 @@ export default class Main extends Component{
               as={Link}
               to='/closet/upload'
               className='home-link'
-              active={activeItem === 'add to wardrobe'}
+              active={activeItem === 'upload to wardrobe'}
               onClick={this.handleItemClick}>
-              <b>#add to wardrobe</b>
+              <b>#upload to wardrobe</b>
               </Menu.Item>
           </Menu>
         </div>
           <div className="App-header2">
             <h1 className='title'><i>#YourWardrobeFinder</i></h1>
-            <span><h3 className='main-sub-text'>Find what's in your closet here without going to the abyss</h3></span>
+            <span><h3 className='main-sub-text'>Find what's in your closet here without going through the abyss</h3></span>
           </div>
           <div className="App-Body">
             <Route path='/closet' component={ClosetContainer} />
@@ -57,6 +57,3 @@ export default class Main extends Component{
   }
 
 }
-
-
-// <Menu.Item name='log out' as={Link} to='/login' className='home-link'/></Menu.Item>

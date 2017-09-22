@@ -59,7 +59,9 @@ class NewItemForm extends Component {
     return(
       <div className="upload-form">
         <Form onSubmit={this.handleSubmitAll}>
-        <label  className="form_labels"><h3 className='upload-title'>Add To Your Wardrobe</h3></label>
+        <label  className="form_labels">
+          <h3 className='upload-title'>Add To Your Wardrobe</h3>
+        </label>
         <br></br>
           <Form.Group widths='equal'>
           <Form.Input
@@ -80,7 +82,7 @@ class NewItemForm extends Component {
             onChange={this.handleChange}/>
           </Form.Group>
             {popup}
-            <Button floated='right' size='tiny' basic color='red' type='submit' className="btn event_button" >
+            <Button floated='right' size='tiny' color='purple' type='submit' className="btn event_button" >
               <div key={0} onClick={() => this.popup('Item Added!')}>Upload</div>
             </Button>
         </Form>

@@ -36,6 +36,9 @@ export default class SearchBar extends Component {
     })
   }
 
+  componentWillUnmount = () => {
+   console.log('i unmounted');
+  }
 
     render(){
       return (
@@ -50,7 +53,7 @@ export default class SearchBar extends Component {
             onChange={this.handleChange}
             />
           </Form.Group>
-          <Form.Group widths='fluid'>
+          <Form.Group>
           <Form.Button compact size='small' color='purple'
             onClick={this.handleClick}
             content='Search'

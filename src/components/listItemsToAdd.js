@@ -1,46 +1,59 @@
 import React, { Component } from 'react'
+import _ from 'lodash'
+import { Grid, Header, Image, Rail, Segment, Sticky } from 'semantic-ui-react'
 import ItemsToAdd from './itemsToAdd'
 
-// this method should render out this.props.allCollections
-// this should be the list of ALL Items
-// be RESPONSIBLE in rendering the itemsToAdd
 
 export default class listItemsToAdd extends Component {
   constructor(props){
     super(props)
     this.state = {
-      newCollectionName: this.props.collectionNameInput // state does NOT need to change
+      newCollectionName: this.props.collectionNameInput
 
     }
   }
 
-  handleSubmitCollectionItem = (e) => {
-  }
+  handleContextRef = contextRef => this.setState({ contextRef })
 
-  // componentWillReceiveProps = (nextProps) => {
-  //   console.log(nextProps.allCollections);
-  //
-  //   // const currentCollection = nextProps.allCollections[nextProps.allCollections.length-1]
-  //   // if (this.props.allCollections !== nextProps.allCollections) {
-  //   //   currentCollection.name ===  ?
-  //   // }
-  //
-  // }
+
 
   render() {
+    const { contextRef } = this.state
     return(
-      <div className='solo-image'>
-        <p className='step-2-add'>Select Items for Your Collection</p>
-        {this.props.allItems.map(item =>
-          <ItemsToAdd
-            eachItem={item}
-            newlyCreatedCollectionID={this.props.newlyCreatedCollectionID}
-            allCollections={this.props.allCollections}
-            createNewCollection={this.props.createNewCollection}
-            createCollectionItems={this.props.createCollectionItems}
-          />
-        )}
-      </div>
+      <Grid centered columns={3}>
+        <Grid.Column>
+          <div ref={this.handleContextRef}>
+
+            <Segment>
+              <Rail position='left'>
+              {_.times(10, i =>
+                  <div className='solo-image' key={i}>
+                    <p className='step-2-add'>Select Items for Your Collection</p>
+                    {this.props.allItems.map(item =>
+                      <ItemsToAdd
+                        eachItem={item}
+                        newlyCreatedCollectionID={this.props.newlyCreatedCollectionID}
+                        allCollections={this.props.allCollections}
+                        createNewCollection={this.props.createNewCollection}
+                        createCollectionItems={this.props.createCollectionItems}
+                      />
+                    )}
+                  </div> )}
+              </Rail>
+
+              <Rail position='right'>
+                <Sticky context={contextRef}>
+                  <Header as='h3'>Stuck Content</Header>
+
+                  <div> Hello World </div>
+
+                </Sticky>
+              </Rail>
+            </Segment>
+          </div>
+        </Grid.Column>
+      </Grid>
+
     )
   }
 

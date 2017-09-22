@@ -38,7 +38,7 @@ export class Adaptors {
         item_id,
         collection_id
       })
-    }).then(res => res.json())
+    }).then(res => console.log(res))
   }
 
   static createTag(item_url, tags_arr){

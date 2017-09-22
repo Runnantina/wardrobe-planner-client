@@ -5,7 +5,6 @@ import Collection from './collection'
 export default class CollectionList extends Component {
   constructor(props){
     super(props)
-
   }
 
   render(){

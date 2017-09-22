@@ -2,6 +2,19 @@ import React, { Component } from 'react'
 import { Form, Button, Input } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
+class Popup extends Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    const { value } = this.props
+    return (
+      <div className="popup">
+        <p>{value}</p>
+      </div>
+      )
+    }
+  }
 
 export default class CreateCollectionForm extends Component {
   constructor(props){
@@ -12,10 +25,20 @@ export default class CreateCollectionForm extends Component {
       collectionNameInput: "",
       collection: [],
       item: [],
-      message: false
+      message: false,
+      visible: false,
+      value: ''
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmitCollectionName = this.handleSubmitCollectionName.bind(this)
+    this.popup = this.popup.bind(this)
+  }
+
+  popup(value) {
+  this.setState({
+    visible: true,
+    value: value
+    })
   }
 
   handleChange(e){
@@ -30,36 +53,39 @@ export default class CreateCollectionForm extends Component {
 
 
   render(){
+    const popup = (this.state.visible ? <Popup value={this.state.value} /> : null)
     return(
       <div className="collection-input-form" >
           <h3 className='collection-form-title' align="center">
             Create New Collection
           </h3><br></br>
-          <h5 className='step-1'>Step 1:</h5>
-          <Form>
-            <Form.Group widths='equal'>
-              <Form.Field control={Input}
-                placeholder='Name Your New Collection'
-                id='collectionNameInput'
-                value={this.state.collectionNameInput}
-                onChange={this.handleChange} />
-            </Form.Group>
-                <Form.Field control={Button}
-                  size='tiny'
-                  color="red"
-                  content="Save Name"
-                  onClick={this.handleSubmitCollectionName}
-                  />
+            <h5 className='step-1'>
+              Step 1:
+            </h5>
+              <Form onSubmit={this.handleSubmitCollectionName}>
+                <Form.Group widths='equal'>
+                  <Form.Field control={Input}
+                    placeholder='Name Your New Collection'
+                    id='collectionNameInput'
+                    value={this.state.collectionNameInput}
+                    onChange={this.handleChange} />
+                </Form.Group>
+                  {popup}
                   <br></br>
-                    <h5 className='step-1'>Step 2:</h5>
-                <Button
-                size='tiny'
-                color='red'
-                as={Link}
-                to='/closet/list_items_to_add'
-                content='proceed to select items'
-                />
-          </Form>
+                  <Button floated='left' size='tiny' color='purple' type='submit' className="btn event_button" >
+                    <div key={0} onClick={() => this.popup('Got It!')}>Save Name</div>
+                  </Button>
+                      <br></br>
+                      <br></br>
+                        <h5 className='step-1'>Step 2:</h5>
+                    <Button
+                    size='tiny'
+                    color='purple'
+                    as={Link}
+                    to='/closet/list_items_to_add'
+                    content='proceed to select items'
+                    />
+              </Form>
       </div>
     )
   }

@@ -29,6 +29,10 @@ export default class CollectionSearch extends Component {
     })
   }
 
+  componentWillUnmount = () => {
+   this.props.onSubmitSelectCollection('')
+  }
+
     render(){
       return (
         <div className="collection-search">

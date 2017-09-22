@@ -1,18 +1,41 @@
 import React, { Component } from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 import ItemsToAdd from './itemsToAdd'
 
+class Popup extends Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    const { value } = this.props
+    return (
+      <div className="popup">
+        <p>{value}</p>
+      </div>
+      )
+    }
+  }
 
 export default class AddToCollectionForm extends Component {
   constructor(props){
     super(props)
-
     this.state = {
+      visible: false,
+      value: '',
       collectionID: ""
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.popup = this.popup.bind(this)
   }
+
+  popup(value) {
+  this.setState({
+    visible: true,
+    value: value
+    })
+  }
+
 
   handleChange = (e, { name, value }) => {
     this.setState({[name]: value})
@@ -20,20 +43,9 @@ export default class AddToCollectionForm extends Component {
   }
 
   handleClick = (e, { name, value }) => {
-    // when user clicks Save Name, should just mean it's holding the selected collection name
-    // this.props.createCollectionItems(this.state.collectionSearchInput)
     this.setState({[name]: value})
   }
 
-  // handleClick = (e, object) => {
-  //   // when user clicks save name, should just mean it's holding the selected collection name
-  //   // this.props.createCollectionItems(this.state.collectionSearchInput)
-  //   this.setState({
-  //     [object.name]: object.value
-  //   })
-  //   debugger
-  //   console.log(this.state.collectionSearchInput);
-  // }
 
   collections = () => {
     const collections = this.props.allCollections.sort((a, b) => a.name.localeCompare(b.name))
@@ -45,12 +57,13 @@ export default class AddToCollectionForm extends Component {
 
 
   render(){
+    const popup = (this.state.visible ? <Popup value={this.state.value} /> : null)
     return(
       <div className="collection-input-form">
         <h3 className='collection-form-title'>
           Add to Existing Collections
         </h3><br></br>
-        <Form widths='equal'>
+      <Form widths='equal' onSubmit={this.handleClick}>
             <Form.Group >
               <Form.Dropdown search selection
                 id='searchCollection'
@@ -60,13 +73,11 @@ export default class AddToCollectionForm extends Component {
                 options={this.collections()}
                 onChange={this.handleChange}
               />
-              <Form.Button color='black' compact size='tiny'
-                onClick={this.handleClick}
-                content='Select'
-                floated ='left'
-                />
             </Form.Group>
-
+            {popup}
+            <Button floated='right' size='tiny' color='purple' type='submit' className="btn event_button" >
+              <div key={0} onClick={() => this.popup('Got it!')}>Select</div>
+            </Button>
             <Form.Group>
               <br></br>
               <div className='solo-image'>
