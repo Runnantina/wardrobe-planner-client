@@ -13,7 +13,6 @@ import ListItemsToAdd from '../components/listItemsToAdd'
 import { Route } from 'react-router-dom'
 import '../App.css'
 
-
 export default class ClosetContainer extends Component{
   constructor(){
     super()
@@ -141,7 +140,6 @@ export default class ClosetContainer extends Component{
                 onSubmitIDs={this.createItemTag}/>}/>
 
           <Route path = '/closet/new_collection' render= {() => (
-
               <CreateCollectionForm
               allItems={this.state.items}
               allCollections={this.state.collections}
@@ -151,16 +149,17 @@ export default class ClosetContainer extends Component{
               tags={this.state.tags}
               onSubmit={this.onSubmitTagSearch}
               />
-
           )}/>
 
-        <Route path = '/closet/list_items_to_add' render= {() => (
-              <ListItemsToAdd
-              allItems={this.state.items}
-              allCollections={this.state.collections}
-              createNewCollection={this.createNewCollection}
-              newlyCreatedCollectionID={this.state.newlyCreatedCollectionID}
-              createCollectionItems={this.createCollectionItems}/>)}/>
+          <Route path = '/closet/list_items_to_add' render= {() => (
+                <ListItemsToAdd
+                allItems={this.state.items}
+                allCollections={this.state.collections}
+                createNewCollection={this.createNewCollection}
+                newlyCreatedCollectionID={this.state.newlyCreatedCollectionID}
+                showCollection={this.showCollection}
+                oneCollection={this.state.oneCollection}
+                createCollectionItems={this.createCollectionItems}/>)}/>
 
           <Route path = '/closet/add_to_collection' render= {() =>
               <AddToCollectionForm

@@ -43,6 +43,7 @@ export default class AddToCollectionForm extends Component {
   }
 
   handleClick = (e, { name, value }) => {
+    console.log("selected!");
     this.setState({[name]: value})
   }
 
@@ -67,7 +68,6 @@ export default class AddToCollectionForm extends Component {
             <Form.Group >
               <Form.Dropdown search selection
                 id='searchCollection'
-                value={this.state.collectionSearchInput}
                 placeholder='select collection'
                 name = 'collectionID'
                 options={this.collections()}
@@ -75,13 +75,14 @@ export default class AddToCollectionForm extends Component {
               />
             </Form.Group>
             {popup}
+            <br></br>
             <Button floated='right' size='tiny' color='purple' type='submit' className="btn event_button" >
               <div key={0} onClick={() => this.popup('Got it!')}>Select</div>
             </Button>
-            <Form.Group>
+
               <br></br>
+              <h4 className='step-2-add'>Step 2 : Select Each Item for Your Collection</h4>
               <div className='solo-image'>
-                <p className='step-2-add'>Step 2 : Select Each Item for Your Collection</p>
                 {this.props.allItems.map(item =>
                   <ItemsToAdd
                     eachItem={item}
@@ -90,12 +91,9 @@ export default class AddToCollectionForm extends Component {
                     newlyCreatedCollectionID={this.state.collectionID}
                   />)}
               </div>
-            </Form.Group>
-        </Form>
 
+        </Form>
       </div>
     )
   }
-
-
 }

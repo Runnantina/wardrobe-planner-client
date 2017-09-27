@@ -43,7 +43,7 @@ export default class SearchBar extends Component {
     render(){
       return (
         <Form className='search-form'>
-          <h3 className='search-form-title'>Search Your Closet</h3>
+          <h3 className='search-form-title'>search through #tags</h3>
           <Form.Group widths='equal'>
             <Form.Dropdown search selection multiple
             value={this.state.searchTags}
