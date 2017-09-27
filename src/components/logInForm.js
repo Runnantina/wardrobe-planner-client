@@ -28,7 +28,6 @@ const LogInForm = () => {
         </Form>
       </div>
     )
-
 }
 
 export default LogInForm

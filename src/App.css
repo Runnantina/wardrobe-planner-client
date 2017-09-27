@@ -40,6 +40,12 @@ form.ui.form.login-form {
   opacity: .9;
 }
 
+.collection-name {
+  padding-left: 20px;
+  padding-top: 20px;
+  color: red;
+}
+
 .collection-input-form {
   padding-left: 20px;
   padding-right: 20px;
@@ -73,12 +79,6 @@ form.ui.form.login-form {
 h5.ui.header.sticky-box-title {
   color: red;
 }
-
-/*.add-to-collection-button {
-  position: relative;
-  bottom: -220px;
-  left: 55px;
-}*/
 
 .add-to-collection-button {
   font-weight: 100;
@@ -132,9 +132,6 @@ a.item.home-link b{
 
 .App {
   font-family: 'Scada', sans-serif;
-  /*background-color: #ED4264;*/
-  /*background: linear-gradient(to right, #FFEDBC, #D8FFE9);*/
-  /*background: linear-gradient(to right, #ED4264, #FFEDBC);*/
   background: linear-gradient(to bottom right, #C5B1DB, #EDB6D0);
   min-height: 1650px;
   background-color: #FFFDFC;
@@ -255,7 +252,6 @@ h3.main-sub-text {
   padding-top: 20px;
   height: 150px;
   font-weight: 300;
-  /*background-color: #D8FFE9; green */
   opacity: 0.85;
 }
 

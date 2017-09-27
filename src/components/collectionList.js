@@ -10,6 +10,7 @@ export default class CollectionList extends Component {
   render(){
     return(
       <div>
+        <h3 className='collection-name'>{this.props.oneCollection.name}</h3>
         <ul>
           {!this.props.oneCollection.items ? <div></div> :
             this.props.oneCollection.items.map( item => (
