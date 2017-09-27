@@ -21,6 +21,12 @@ form.ui.form.login-form {
 
 .sign-in-title {
   font-size: 130px;
+  font-family: 'Scada', sans-serif;
+  font-size: 100px;
+  padding-left: 20px;
+  padding-top: 8px;
+  color: white;
+  text-shadow: 4px 4px 2px pink;
 }
 
 

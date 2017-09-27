@@ -9,8 +9,8 @@ const LogInForm = () => {
       <div className='login-form-div'>
         <Form className='login-form'>
           <Form.Field>
-            <h1 className="sign-in-title">My Wardrobe</h1>
-            <Form.Input label='Username' type='text' />
+            <h1 className="sign-in-title"><i>#YourWardrobeFinder</i></h1>
+            <Form.Input label='Username' type='text'/>
             <Form.Input label='Password' type='password' />
           </Form.Field>
             <Button basic color='teal' size='mini' type='submit' as={Link} to='/closet'>Log In</Button>
