@@ -13,7 +13,7 @@ export class Adaptors {
       .then(res => res.json())
   }
 
-  static ItemsByTag(searchTags){ // searchTags = itemTags = ["tags tags tags"]
+  static ItemsByTag(searchTags){
     return fetch(baseURL + `/tagitems`, {
       method: 'POST',
       headers: this.headers(),

@@ -54,12 +54,10 @@ export default class ClosetContainer extends Component{
     .then(tags => this.setState({tags}))
   }
 
-//
   getItemTags(searchTags){
-    Adaptors.ItemsByTag(searchTags) // <<--- this is where the array is turned into an object BEFORE it is set as itemTags
+    Adaptors.ItemsByTag(searchTags)
     .then(itemTags => this.setState({itemTags}))
   }
-//
 
   getCollections(){
     Adaptors.Collections()
