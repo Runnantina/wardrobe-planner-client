@@ -58,7 +58,7 @@ export default class SearchBar extends Component {
             onClick={this.handleClick}
             content='Search'
             />
-              <Modal
+          <Modal
                 trigger={<Button onClick={this.handleOpen} basic color='purple' compact size='mini' >Make A Collection</Button>}
                 open={this.state.modalOpen}
                 onClose={this.handleClose}>
@@ -70,7 +70,7 @@ export default class SearchBar extends Component {
                   <Button
                     compact
                     size='small'
-                    basic color='teal'
+                    basic color='red'
                     as={Link}
                     to='/closet/new_collection'
                     onClick={this.handleClose}>

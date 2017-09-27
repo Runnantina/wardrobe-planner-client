@@ -39,20 +39,20 @@ export default class listItemsToAdd extends Component {
               </div>
               <Rail>
                 <div className='sticky-box'>
-                <Sticky context={contextRef}>
-                  <Header as='h5' className='sticky-box-title'>#whenyouredone:</Header>
-                    <div className='sticky-box-content'>
-                      <Button
-                        className='save-collection-button'
-                        baic size='tiny'
-                        color='red'
-                        as={Link}
-                        to={`/closet/my_collections`}
-                        >
-                        <Button.Content><Icon name='wizard'/>Save Collection</Button.Content>
-                      </Button>
-                    </div>
-                </Sticky>
+                  <Sticky context={contextRef}>
+                    <Header as='h5' className='sticky-box-title'>#whenyouredone:</Header>
+                      <div className='sticky-box-content'>
+                        <Button
+                          className='save-collection-button'
+                          baic size='tiny'
+                          color='red'
+                          as={Link}
+                          to={`/closet/my_collections`}
+                          >
+                          <Button.Content><Icon name='wizard'/>Save Collection</Button.Content>
+                        </Button>
+                      </div>
+                  </Sticky>
                 </div>
               </Rail>
             </div>

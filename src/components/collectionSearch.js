@@ -49,7 +49,7 @@ export default class CollectionSearch extends Component {
             />
           </Form.Group>
           <Form.Group>
-            <Form.Button color='black' compact size='small'
+            <Form.Button color='purple' compact size='small'
               onClick={this.handleClick}
               content='Search'
               floated ='left'
@@ -66,7 +66,7 @@ export default class CollectionSearch extends Component {
                   <Button
                     compact
                     size='small'
-                    basic color='teal'
+                    basic color='red'
                     as={Link}
                     to='/closet/new_collection'
                     onClick={this.handleClose}>
