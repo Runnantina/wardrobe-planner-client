@@ -9,7 +9,7 @@ Why? Because most of us suffer from dementia when looking for what to wear at an
 
 ## Main Features
 
-![image](http://g.recordit.co/FebjLkmNRw.gif)
+![](http://g.recordit.co/FebjLkmNRw.gif)
 
 1. Acquire list of items from your closet virtually by searching by tags
 2. Save which item(s) you want through the form of a polaroid picture of your item from your closet
